@@ -56,7 +56,7 @@ const Index = () => {
   return (
     <>
       <SEOHelmet />
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-black">
         <StickyNavigation />
         <HeroSection />
         <AboutSection />

@@ -10,21 +10,26 @@ export const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     message: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Simulate form submission
+
+    // Open the user's email client with a pre-filled message to Malab
+    const subject = encodeURIComponent(`Nova proposta de ${formData.name}`);
+    const body = encodeURIComponent(
+      `Nome: ${formData.name}\nE-mail: ${formData.email}\n\n${formData.message}`
+    );
+    window.location.href = `mailto:Malab@malab.com.br?subject=${subject}&body=${body}`;
+
     toast({
-      title: "Mensagem enviada!",
-      description: "Entraremos em contato em breve. Obrigado!",
+      title: "Abrindo seu e-mail...",
+      description: "Finalize o envio no seu aplicativo de e-mail. Obrigado!",
     });
-    
+
     // Reset form
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setFormData({ name: '', email: '', message: '' });
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

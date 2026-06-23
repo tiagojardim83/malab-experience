@@ -91,20 +91,7 @@ export const ContactSection = () => {
                   </div>
                 </div>
                 
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium mb-2 text-[#F5E6CC]">
-                    Telefone
-                  </label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder="(11) 99999-9999"
-                    className="bg-transparent border-[#F5E6CC]/60 text-[#F5E6CC] placeholder:text-[#F5E6CC]/50 focus-visible:ring-[#F5E6CC]/40"
-                  />
-                </div>
+
                 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium mb-2 text-[#F5E6CC]">

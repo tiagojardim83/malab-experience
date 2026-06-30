@@ -10,9 +10,11 @@ interface Artist {
   description: string;
   image: { url: string };
   imageAlt: string;
+  imagePosition?: string;
   instagramUrl: string;
   whatsappNumber: string;
 }
+
 
 const WHATSAPP_NUMBER = '+553199514594';
 

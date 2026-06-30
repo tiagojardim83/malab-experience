@@ -10,9 +10,11 @@ interface Artist {
   description: string;
   image: { url: string };
   imageAlt: string;
+  imagePosition?: string;
   instagramUrl: string;
   whatsappNumber: string;
 }
+
 
 const WHATSAPP_NUMBER = '+553199514594';
 
@@ -37,7 +39,9 @@ const artists: Artist[] = [
     instagramUrl: 'https://www.instagram.com/rodrigoborgesoficial/?hl=en',
     whatsappNumber: WHATSAPP_NUMBER,
   },
+
 ];
+
 
 const buildWhatsAppUrl = (artistName: string) => {
   const text = encodeURIComponent(
@@ -76,7 +80,11 @@ export const ArtistsSection = () => {
                     alt={artist.imageAlt}
                     className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                     loading="lazy"
+                    style={{
+                      objectPosition: artist.imagePosition ?? 'center center',
+                    }}
                   />
+
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80" />
                 </div>
                 <CardContent className="p-6 flex flex-col flex-1 gap-4">

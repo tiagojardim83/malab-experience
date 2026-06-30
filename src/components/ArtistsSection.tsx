@@ -36,10 +36,12 @@ const artists: Artist[] = [
       'Cantor, compositor e instrumentista com trajetória singular, trazendo autenticidade e energia para cada palco que pisa.',
     image: rodrigoBorgesImg,
     imageAlt: 'Foto promocional de Rodrigo Borges',
+    imagePosition: '65% 20%',
     instagramUrl: 'https://www.instagram.com/rodrigoborgesoficial/?hl=en',
     whatsappNumber: WHATSAPP_NUMBER,
   },
 ];
+
 
 const buildWhatsAppUrl = (artistName: string) => {
   const text = encodeURIComponent(

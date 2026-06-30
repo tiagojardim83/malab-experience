@@ -60,9 +60,9 @@ export const ArtistsSection = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary-foreground">
               Artistas Representados
             </h2>
-            <p className="text-xl font-light text-primary-foreground/80 max-w-3xl mx-auto">
-              Talentos que carregam a essência da Malab Produções para os
-              palcos mais importantes do Brasil.
+            <p className="text-xl font-light text-primary-foreground/80 max-w-3xl mx-auto whitespace-pre-line">
+              Talentos que carregam a essência da Malab Produções para&nbsp;{"\n"}
+              os&nbsp;palcos mais importantes do Brasil.
             </p>
           </div>
 

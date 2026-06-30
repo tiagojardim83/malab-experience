@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { SEOHelmet } from '@/components/SEOHelmet';
 import { StickyNavigation } from '@/components/StickyNavigation';
 import { HeroSection } from '@/components/HeroSection';
+import { ArtistsSection } from '@/components/ArtistsSection';
 import { AboutSection } from '@/components/AboutSection';
 import { MissionSection } from '@/components/MissionSection';
 import { VideoShowcaseSection } from '@/components/VideoShowcaseSection';
@@ -59,6 +60,7 @@ const Index = () => {
       <div className="min-h-screen bg-black">
         <StickyNavigation />
         <HeroSection />
+        <ArtistsSection />
         <AboutSection />
         <ParallaxDivider image={parallax2} alt="Performance ao vivo" position="center 15%" intensity={140} />
         <MissionSection />

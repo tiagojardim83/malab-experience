@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { SEOHelmet } from '@/components/SEOHelmet';
 import { StickyNavigation } from '@/components/StickyNavigation';
 import { HeroSection } from '@/components/HeroSection';
+import { ArtistsSection } from '@/components/ArtistsSection';
 import { AboutSection } from '@/components/AboutSection';
 import { MissionSection } from '@/components/MissionSection';
 import { VideoShowcaseSection } from '@/components/VideoShowcaseSection';

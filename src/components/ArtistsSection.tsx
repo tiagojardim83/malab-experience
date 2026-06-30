@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import patoFuImg from '@/assets/artist-acoustic.jpg.asset.json';
-import rodrigoBorgesImg from '@/assets/artist-singer.jpg.asset.json';
+import patoFuImg from '@/assets/artist-patofu.jpg.asset.json';
+import rodrigoBorgesImg from '@/assets/artist-rodrigoborges.jpg.asset.json';
 
 interface Artist {
   id: string;

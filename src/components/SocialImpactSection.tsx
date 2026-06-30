@@ -120,7 +120,7 @@ export const SocialImpactSection = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#F5E6CC]">
               Cultura que Transforma
             </h2>
-            <p className="text-xl text-[#F5E6CC]/90 max-w-3xl mx-auto">
+            <p className="text-xl font-light text-[#F5E6CC]/90 max-w-3xl mx-auto">
               Nosso compromisso vai além do entretenimento. Cada evento é uma oportunidade 
               de gerar impacto positivo na sociedade.
             </p>

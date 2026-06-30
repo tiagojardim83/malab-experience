@@ -51,7 +51,7 @@ export const HeroSection = () => {
             <span className="text-secondary">Mundo</span>
           </h1>
           
-          <p className="text-lg md:text-xl mb-12 opacity-80 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl font-light mb-12 opacity-80 max-w-2xl mx-auto">
             Há quase três décadas, conectamos artistas, plateias e cidades inteiras a experiências inesquecíveis.
           </p>
           

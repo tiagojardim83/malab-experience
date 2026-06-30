@@ -266,7 +266,7 @@ export const ServicesSection = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-background">
               Serviços de Produção Cultural <br /> em Minas Gerais
             </h2>
-            <p className="text-lg md:text-xl text-background font-bold max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl font-light text-background max-w-3xl mx-auto">
               Oferecemos soluções completas para eventos, shows e festivais. Da concepção
               à execução, transformamos ideias em experiências inesquecíveis.
             </p>

@@ -58,7 +58,7 @@ export const AboutSection = () => {
             </header>
 
             <div className="space-y-6 text-lg leading-relaxed text-foreground/90 max-w-2xl animate-slide-up">
-              <p className="text-xl italic text-foreground font-medium">
+              <p className="text-xl italic text-foreground font-light">
                 30 anos transformando Minas Gerais no epicentro cultural do Brasil.
               </p>
               <p>

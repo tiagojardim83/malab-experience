@@ -80,7 +80,7 @@ export const PortfolioSection = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-primary">
               Palcos que já iluminamos
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="text-xl font-light text-muted-foreground max-w-3xl mx-auto mb-8">
               De festivais independentes a turnês globais, estes são alguns capítulos 
               que escrevemos com artistas e marcas ao redor do planeta.
             </p>

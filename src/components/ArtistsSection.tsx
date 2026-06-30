@@ -35,15 +35,15 @@ const artists: Artist[] = [
 
 export const ArtistsSection = () => {
   return (
-    <section id="artistas" className="py-20 bg-black">
+    <section id="artistas" className="py-20 bg-hero-gradient">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-primary">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary-foreground">
               Artistas Representados
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto">
               Talentos que carregam a essência da Malab Produções para os
               palcos mais importantes do Brasil.
             </p>
@@ -54,7 +54,7 @@ export const ArtistsSection = () => {
             {artists.map((artist, index) => (
               <Card
                 key={artist.id}
-                className="card-elegant group overflow-hidden flex flex-col h-full animate-slide-up"
+                className="group overflow-hidden flex flex-col h-full animate-slide-up bg-primary-foreground/5 backdrop-blur-sm border border-primary-foreground/20 hover:border-primary-foreground/40 transition-all duration-300"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <div className="relative overflow-hidden aspect-[4/3]">
@@ -67,10 +67,10 @@ export const ArtistsSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80" />
                 </div>
                 <CardContent className="p-6 flex flex-col flex-1 gap-4">
-                  <h3 className="text-2xl font-bold text-primary">
+                  <h3 className="text-2xl font-bold text-primary-foreground">
                     {artist.name}
                   </h3>
-                  <p className="text-muted-foreground flex-1">
+                  <p className="text-primary-foreground/80 flex-1">
                     {artist.description}
                   </p>
                   <Button

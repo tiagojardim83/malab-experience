@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Instagram, MessageCircle } from 'lucide-react';
 import patoFuImg from '@/assets/artist-patofu.jpg.asset.json';
 import rodrigoBorgesImg from '@/assets/artist-rodrigoborges.jpg.asset.json';
 
@@ -9,8 +10,11 @@ interface Artist {
   description: string;
   image: { url: string };
   imageAlt: string;
-  profileUrl: string;
+  instagramUrl: string;
+  whatsappNumber: string;
 }
+
+const WHATSAPP_NUMBER = '+553199514594';
 
 const artists: Artist[] = [
   {
@@ -20,7 +24,8 @@ const artists: Artist[] = [
       'Uma das bandas mais criativas do rock brasileiro, conhecida por misturar sonoridades inovadoras e performances marcantes que conquistam gerações.',
     image: patoFuImg,
     imageAlt: 'Foto promocional do Pato Fu',
-    profileUrl: '#',
+    instagramUrl: 'https://www.instagram.com/patofu/?hl=en',
+    whatsappNumber: WHATSAPP_NUMBER,
   },
   {
     id: 'rodrigo-borges',
@@ -29,9 +34,17 @@ const artists: Artist[] = [
       'Cantor, compositor e instrumentista com trajetória singular, trazendo autenticidade e energia para cada palco que pisa.',
     image: rodrigoBorgesImg,
     imageAlt: 'Foto promocional de Rodrigo Borges',
-    profileUrl: '#',
+    instagramUrl: 'https://www.instagram.com/rodrigoborgesoficial/?hl=en',
+    whatsappNumber: WHATSAPP_NUMBER,
   },
 ];
+
+const buildWhatsAppUrl = (artistName: string) => {
+  const text = encodeURIComponent(
+    `Olá! Gostaria de contratar ${artistName} através da Malab Produções.`
+  );
+  return `https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g, '')}?text=${text}`;
+};
 
 export const ArtistsSection = () => {
   return (
@@ -73,13 +86,36 @@ export const ArtistsSection = () => {
                   <p className="text-primary-foreground/80 flex-1">
                     {artist.description}
                   </p>
-                  <Button
-                    variant="hero"
-                    className="w-full mt-2"
-                    asChild
-                  >
-                    <a href={artist.profileUrl}>Ver Perfil</a>
-                  </Button>
+                  <div className="grid grid-cols-2 gap-3 mt-2">
+                    <Button
+                      variant="hero"
+                      className="w-full"
+                      asChild
+                    >
+                      <a
+                        href={buildWhatsAppUrl(artist.name)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <MessageCircle className="w-4 h-4 mr-2" />
+                        Contratar
+                      </a>
+                    </Button>
+                    <Button
+                      variant="hero"
+                      className="w-full"
+                      asChild
+                    >
+                      <a
+                        href={artist.instagramUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Instagram className="w-4 h-4 mr-2" />
+                        Instagram
+                      </a>
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -89,3 +125,4 @@ export const ArtistsSection = () => {
     </section>
   );
 };
+

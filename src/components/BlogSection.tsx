@@ -29,7 +29,7 @@ const BlogSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
             Blog Malab: Histórias dos Nossos Eventos
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-xl font-light text-muted-foreground max-w-3xl mx-auto mb-8">
             Conheça os bastidores e as histórias por trás dos eventos que marcaram nossa trajetória em Minas Gerais. 
             Cada evento é uma experiência única que fica na memória de milhares de pessoas.
           </p>

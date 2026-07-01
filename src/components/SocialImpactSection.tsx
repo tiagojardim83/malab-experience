@@ -103,7 +103,7 @@ const impactAreas = [
 
 export const SocialImpactSection = () => {
   return (
-    <section className="py-20 relative overflow-hidden bg-gradient-to-br from-[#F25C2A] via-[#E8451F] to-[#C2410C]">
+    <section className="py-14 md:py-20 relative overflow-hidden bg-gradient-to-br from-[#F25C2A] via-[#E8451F] to-[#C2410C]">
       {/* Background Image */}
       <div className="absolute inset-0 opacity-10 mix-blend-overlay">
         <img 
@@ -116,11 +116,11 @@ export const SocialImpactSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#F5E6CC]">
+          <div className="text-center mb-10 md:mb-16 animate-fade-in">
+            <h2 className="text-[30px] leading-[1.15] font-bold mb-3 md:text-5xl md:mb-6 text-[#F5E6CC]">
               Cultura que Transforma
             </h2>
-            <p className="text-xl font-light text-[#F5E6CC]/90 max-w-3xl mx-auto">
+            <p className="text-lg leading-[1.5] font-light text-[#F5E6CC]/90 max-w-3xl mx-auto">
               Nosso compromisso vai além do entretenimento. Cada evento é uma oportunidade 
               de gerar impacto positivo na sociedade.
             </p>

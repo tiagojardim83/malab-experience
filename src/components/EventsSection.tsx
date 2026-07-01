@@ -106,6 +106,16 @@ const EventsSection = () => {
                   }`}
                 >
                   <div className="relative overflow-hidden aspect-[3/4] bg-muted">
+                    {event.done && (
+                      <div className="absolute top-0 left-0 z-20 w-40 -translate-x-1/4 translate-y-2 -rotate-45 bg-gradient-to-r from-black/90 to-black/70 backdrop-blur-sm py-1.5 shadow-lg">
+                        <div className="flex items-center justify-center gap-1.5">
+                          <Check className="h-3.5 w-3.5 text-white" strokeWidth={3} />
+                          <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-white">
+                            Realizado
+                          </span>
+                        </div>
+                      </div>
+                    )}
                     <img
                       src={event.image}
                       alt={event.title}

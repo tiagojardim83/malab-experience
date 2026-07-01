@@ -192,7 +192,7 @@ const EventsSection = () => {
                       className="w-full rounded-full font-semibold tracking-wide text-base md:text-sm bg-gradient-to-r from-primary/80 to-accent/80 text-primary-foreground hover:opacity-90 mt-auto"
                       onClick={() => window.open(event.link, '_blank')}
                     >
-                      {event.ctaLabel || (featured ? 'Compre Agora' : 'Saiba Mais')}
+                      {event.ctaLabel || (idx === 1 ? 'Compre Agora' : 'Saiba Mais')}
                       <ChevronRight className="h-4 w-4 ml-1" />
                     </Button>
                   </div>

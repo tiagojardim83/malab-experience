@@ -134,8 +134,12 @@ const EventsSection = () => {
               const featured = idx === 1;
               return (
                 <article
+                  ref={(el) => { cardRefs.current[idx] = el; }}
+                  data-event-id={event.id}
                   key={`${event.id}-${idx}`}
                   className={`group relative rounded-2xl overflow-hidden bg-card border transition-all duration-500 hover:-translate-y-2 min-w-[260px] md:min-w-0 snap-start ${
+                    centeredId === event.id ? 'scale-[1.04]' : 'scale-100'
+                  } ${
                     featured
                       ? 'shadow-2xl ring-1 ring-primary/40 border-primary/30 z-30 md:-translate-y-10'
                       : 'shadow-lg border-primary/10 opacity-95 hover:opacity-100 z-10'

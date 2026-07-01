@@ -92,14 +92,14 @@ const EventsSection = () => {
   }, [visible]);
 
   return (
-    <section id="eventos" className="py-20 bg-primary">
+    <section id="eventos" className="py-14 md:py-20 bg-primary">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-[30px] leading-[1.15] font-bold mb-3 md:text-5xl md:mb-6 text-primary-foreground">
             Próximos Eventos em Belo Horizonte
           </h2>
-          <p className="text-xl font-light text-primary-foreground/80 max-w-3xl mx-auto">
+          <p className="text-lg leading-[1.5] font-light text-primary-foreground/80 max-w-3xl mx-auto">
             Agenda atualizada dos melhores eventos culturais e shows em Minas Gerais.
           </p>
         </div>

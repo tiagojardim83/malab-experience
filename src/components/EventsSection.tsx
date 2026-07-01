@@ -95,13 +95,13 @@ const EventsSection = () => {
           </button>
 
           {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start px-10 md:px-0">
+          <div className="flex md:grid md:grid-cols-3 gap-6 lg:gap-8 items-start px-10 md:px-0 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory scroll-smooth">
             {visible.map((event, idx) => {
               const featured = idx === 1;
               return (
                 <article
                   key={`${event.id}-${idx}`}
-                  className={`group relative rounded-2xl overflow-hidden bg-card border transition-all duration-500 hover:-translate-y-2 ${
+                  className={`group relative rounded-2xl overflow-hidden bg-card border transition-all duration-500 hover:-translate-y-2 min-w-[260px] md:min-w-0 snap-start ${
                     featured
                       ? 'shadow-2xl ring-1 ring-primary/40 border-primary/30 z-30 md:-translate-y-10'
                       : 'shadow-lg border-primary/10 opacity-95 hover:opacity-100 z-10'

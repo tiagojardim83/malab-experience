@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Clock, Ticket, ChevronRight, ChevronLeft } from 'lucide-react';
+import { MapPin, Clock, Ticket, ChevronRight, ChevronLeft, Check } from 'lucide-react';
 import { Button } from './ui/button';
 import mariaRita from '@/assets/event-maria-rita.jpg.asset.json';
 import viradaLiberdade from '@/assets/event-virada-liberdade.png.asset.json';

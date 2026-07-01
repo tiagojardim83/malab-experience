@@ -80,7 +80,7 @@ const EventsSection = () => {
             onClick={handlePrev}
             aria-label="Evento anterior"
             disabled={!canCycle}
-            className="absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 z-40 h-11 w-11 rounded-full bg-background/95 text-primary shadow-lg ring-1 ring-primary/20 flex items-center justify-center transition hover:scale-105 hover:bg-background disabled:opacity-40 disabled:cursor-not-allowed"
+            className="absolute hidden md:flex left-0 md:-left-6 top-1/2 -translate-y-1/2 z-40 h-11 w-11 rounded-full bg-background/95 text-primary shadow-lg ring-1 ring-primary/20 items-center justify-center transition hover:scale-105 hover:bg-background disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
@@ -89,7 +89,7 @@ const EventsSection = () => {
             onClick={handleNext}
             aria-label="Próximo evento"
             disabled={!canCycle}
-            className="absolute right-0 md:-right-6 top-1/2 -translate-y-1/2 z-40 h-11 w-11 rounded-full bg-background/95 text-primary shadow-lg ring-1 ring-primary/20 flex items-center justify-center transition hover:scale-105 hover:bg-background disabled:opacity-40 disabled:cursor-not-allowed"
+            className="absolute hidden md:flex right-0 md:-right-6 top-1/2 -translate-y-1/2 z-40 h-11 w-11 rounded-full bg-background/95 text-primary shadow-lg ring-1 ring-primary/20 items-center justify-center transition hover:scale-105 hover:bg-background disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <ChevronRight className="h-5 w-5" />
           </button>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { MapPin, Clock, Ticket, ChevronRight, ChevronLeft, Check } from 'lucide-react';
 import { Button } from './ui/button';
 import mariaRita from '@/assets/event-maria-rita.jpg.asset.json';

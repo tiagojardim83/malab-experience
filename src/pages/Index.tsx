@@ -60,8 +60,9 @@ const Index = () => {
       <div className="min-h-screen bg-black">
         <StickyNavigation />
         <HeroSection />
-        <ArtistsSection />
         <AboutSection />
+        <ArtistsSection />
+        <MissionSection />
         <ParallaxDivider image={parallax2} alt="Performance ao vivo" position="center 15%" intensity={140} />
         <MissionSection />
         <VideoShowcaseSection />

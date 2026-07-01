@@ -80,7 +80,7 @@ const EventsSection = () => {
             onClick={handlePrev}
             aria-label="Evento anterior"
             disabled={!canCycle}
-            className="absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 z-40 h-11 w-11 rounded-full bg-background/95 text-primary shadow-lg ring-1 ring-primary/20 flex items-center justify-center transition hover:scale-105 hover:bg-background disabled:opacity-40 disabled:cursor-not-allowed"
+            className="absolute hidden md:flex left-0 md:-left-6 top-1/2 -translate-y-1/2 z-40 h-11 w-11 rounded-full bg-background/95 text-primary shadow-lg ring-1 ring-primary/20 items-center justify-center transition hover:scale-105 hover:bg-background disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
@@ -89,19 +89,19 @@ const EventsSection = () => {
             onClick={handleNext}
             aria-label="Próximo evento"
             disabled={!canCycle}
-            className="absolute right-0 md:-right-6 top-1/2 -translate-y-1/2 z-40 h-11 w-11 rounded-full bg-background/95 text-primary shadow-lg ring-1 ring-primary/20 flex items-center justify-center transition hover:scale-105 hover:bg-background disabled:opacity-40 disabled:cursor-not-allowed"
+            className="absolute hidden md:flex right-0 md:-right-6 top-1/2 -translate-y-1/2 z-40 h-11 w-11 rounded-full bg-background/95 text-primary shadow-lg ring-1 ring-primary/20 items-center justify-center transition hover:scale-105 hover:bg-background disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <ChevronRight className="h-5 w-5" />
           </button>
 
           {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start px-10 md:px-0">
+          <div className="flex md:grid md:grid-cols-3 gap-6 lg:gap-8 items-start px-10 md:px-0 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory scroll-smooth">
             {visible.map((event, idx) => {
               const featured = idx === 1;
               return (
                 <article
                   key={`${event.id}-${idx}`}
-                  className={`group relative rounded-2xl overflow-hidden bg-card border transition-all duration-500 hover:-translate-y-2 ${
+                  className={`group relative rounded-2xl overflow-hidden bg-card border transition-all duration-500 hover:-translate-y-2 min-w-[260px] md:min-w-0 snap-start ${
                     featured
                       ? 'shadow-2xl ring-1 ring-primary/40 border-primary/30 z-30 md:-translate-y-10'
                       : 'shadow-lg border-primary/10 opacity-95 hover:opacity-100 z-10'

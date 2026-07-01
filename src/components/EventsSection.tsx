@@ -129,20 +129,19 @@ const EventsSection = () => {
           {/* Cards */}
           <div
             ref={containerRef}
-            className="flex md:grid md:grid-cols-3 gap-6 lg:gap-8 items-start px-10 md:px-0 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory scroll-smooth"
+            className="flex md:grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch px-10 md:px-0 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory scroll-smooth"
           >
             {visible.map((event, idx) => {
-              const featured = idx === 1;
               return (
                 <article
                   ref={(el) => { cardRefs.current[idx] = el; }}
                   data-event-id={event.id}
                   key={`${event.id}-${idx}`}
-                  className={`group relative rounded-2xl overflow-hidden bg-card border transition-all duration-500 hover:-translate-y-2 min-w-[280px] w-[280px] md:w-auto md:min-w-0 snap-start flex flex-col ${
+                  className={`group relative rounded-2xl overflow-hidden bg-card border transition-all duration-500 hover:-translate-y-2 min-w-[280px] w-[280px] md:w-auto md:min-w-0 h-auto md:h-full snap-start flex flex-col ${
                     centeredId === event.id ? 'scale-[1.04]' : 'scale-100'
                   } ${
-                    featured
-                      ? 'shadow-2xl ring-1 ring-primary/40 border-primary/30 z-30 md:-translate-y-10'
+                    idx === 1
+                      ? 'shadow-2xl ring-1 ring-primary/40 border-primary/30 z-30'
                       : 'shadow-lg border-primary/10 opacity-95 hover:opacity-100 z-10'
                   }`}
                 >
@@ -166,14 +165,14 @@ const EventsSection = () => {
                   </div>
 
                   <div className="p-4 md:p-5 flex flex-col flex-1">
-                    <h3 className="font-bold text-foreground mb-3 text-base leading-[1.3] md:text-lg">
+                    <h3 className="font-bold text-foreground mb-3 text-base leading-[1.3] md:text-lg line-clamp-2 min-h-[2.6rem] md:min-h-[3rem]">
                       {event.title}
                     </h3>
 
-                    <p className="hidden md:block text-sm leading-[1.5] text-muted-foreground mb-4 flex-1">
+                    <p className="hidden md:block text-sm leading-[1.5] text-muted-foreground mb-4 flex-1 line-clamp-3">
                       {event.description}
                     </p>
-                    <ul className="space-y-2 mb-5 text-muted-foreground md:hidden">
+                    <ul className="space-y-2 mb-5 text-muted-foreground md:hidden flex-1">
                       <li className="flex items-center gap-2">
                         <MapPin className="h-3.5 w-3.5 text-primary shrink-0" />
                         <span className="text-xs">{event.location}</span>
@@ -193,7 +192,7 @@ const EventsSection = () => {
                       className="w-full rounded-full font-semibold tracking-wide text-base md:text-sm bg-gradient-to-r from-primary/80 to-accent/80 text-primary-foreground hover:opacity-90 mt-auto"
                       onClick={() => window.open(event.link, '_blank')}
                     >
-                      {event.ctaLabel || (featured ? 'Compre Agora' : 'Saiba Mais')}
+                      {event.ctaLabel || (idx === 1 ? 'Compre Agora' : 'Saiba Mais')}
                       <ChevronRight className="h-4 w-4 ml-1" />
                     </Button>
                   </div>

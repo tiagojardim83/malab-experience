@@ -97,7 +97,7 @@ const RevealRow = ({ item, index }: RevealRowProps) => {
           <div className="leading-none">
             <CounterAnimation end={item.number} suffix={item.suffix} duration={2200} />
           </div>
-          <span className="mt-1 text-base md:text-lg italic font-light text-background/85">
+          <span className="mt-1 text-base leading-[1.5] italic font-light text-background/85">
             {item.sub}
           </span>
         </div>
@@ -107,7 +107,7 @@ const RevealRow = ({ item, index }: RevealRowProps) => {
 
         {/* Right: description */}
         <div className="flex items-center px-6 md:px-10 py-6 md:py-8 flex-1">
-          <p className="text-xl md:text-3xl font-light text-background tracking-tight">
+          <p className="text-lg leading-[1.5] font-light text-background tracking-tight md:text-3xl">
             {item.description}
           </p>
         </div>
@@ -120,7 +120,7 @@ export const ImpactSection = () => {
   return (
     <section
       id="impact"
-      className="relative py-24 md:py-32 overflow-hidden bg-[hsl(265_65%_10%)]"
+      className="relative py-[4.5rem] md:py-32 overflow-hidden bg-[hsl(265_65%_10%)]"
     >
       {/* Background photo, desaturated */}
       <div
@@ -155,11 +155,11 @@ export const ImpactSection = () => {
 
       <div className="container mx-auto px-4 relative">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-background">
+          <div className="text-center mb-10 md:mb-16 animate-fade-in">
+            <h2 className="text-[30px] leading-[1.15] font-bold mb-3 md:text-5xl md:mb-6 text-background">
               Impacto em Números
             </h2>
-            <p className="text-lg md:text-xl font-light text-background max-w-3xl mx-auto whitespace-pre-line">
+            <p className="text-lg leading-[1.5] font-light text-background max-w-3xl mx-auto whitespace-pre-line">
               Nosso impacto vai além das luzes do palco: ele movimenta cidades,&nbsp;{"\n"}
               inspira pessoas e gera oportunidades.
             </p>
@@ -172,8 +172,8 @@ export const ImpactSection = () => {
             ))}
           </div>
 
-          <div className="text-center mt-16">
-            <p className="text-base md:text-lg text-background/70 font-light">
+          <div className="text-center mt-10 md:mt-16">
+            <p className="text-base leading-[1.6] md:text-lg text-background/70 font-light">
               Cada número representa histórias, conexões e momentos únicos que criamos juntos.
             </p>
           </div>

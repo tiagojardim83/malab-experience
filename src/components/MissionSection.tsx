@@ -1,6 +1,6 @@
 export const MissionSection = () => {
   return (
-    <section id="missao" className="relative py-24 bg-card overflow-hidden">
+    <section id="missao" className="relative py-[4.5rem] md:py-24 bg-card overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto relative">
           <div className="flex items-center gap-4 mb-6 animate-fade-in">
@@ -11,7 +11,7 @@ export const MissionSection = () => {
           </div>
 
           <blockquote className="animate-slide-up">
-            <p className="text-3xl md:text-5xl font-light leading-[1.2] text-foreground tracking-tight">
+            <p className="text-2xl leading-[1.2] font-light md:text-5xl md:leading-[1.2] text-foreground tracking-tight">
               Produzir experiências que unem{' '}
               <span className="text-gradient-primary font-semibold">excelência técnica</span>,{' '}
               <span className="text-secondary font-semibold">impacto social</span> e{' '}

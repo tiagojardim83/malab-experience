@@ -44,22 +44,22 @@ export const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-background">
         <div className="max-w-4xl mx-auto animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-[36px] leading-[1.1] font-bold mb-4 md:text-7xl md:leading-tight md:mb-6">
             O Palco onde{' '}
             <span className="text-secondary">Minas</span>{' '}
             se Encontra com o{' '}
             <span className="text-secondary">Mundo</span>
           </h1>
           
-          <p className="text-lg md:text-xl font-light mb-12 opacity-80 max-w-2xl mx-auto">
+          <p className="text-lg leading-[1.5] font-light mb-8 md:text-xl md:mb-12 opacity-80 max-w-2xl mx-auto">
             Há quase três décadas, conectamos artistas, plateias e cidades inteiras a experiências inesquecíveis.
           </p>
           
-          <div className="flex justify-center items-center mb-16">
+          <div className="flex justify-center items-center mb-8 md:mb-16">
             <Button 
               variant="hero" 
               size="lg" 
-              className="text-lg px-8 py-6"
+              className="text-base md:text-lg px-6 py-5 md:px-8 md:py-6"
               onClick={scrollToEvents}
             >
               Próximos Eventos

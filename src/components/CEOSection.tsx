@@ -4,11 +4,11 @@ import octopusMark from "@/assets/malab-octopus.png.asset.json";
 
 export const CEOSection = () => {
   return (
-    <section id="ceo" className="relative py-24 bg-secondary text-foreground overflow-hidden">
+    <section id="ceo" className="relative py-[4.5rem] md:py-24 bg-secondary text-foreground overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="mb-16 flex items-start justify-between gap-8 animate-fade-in">
+          <div className="mb-10 md:mb-16 flex items-start justify-between gap-8 animate-fade-in">
             <div className="max-w-2xl">
               <div className="flex items-center gap-4 mb-4">
                 <span className="h-[2px] w-12 bg-foreground" />
@@ -16,7 +16,7 @@ export const CEOSection = () => {
                   Visão & Liderança
                 </span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-bold leading-[1.05] text-foreground">
+              <h2 className="text-[30px] leading-[1.15] font-bold mb-3 md:text-6xl md:leading-[1.05] md:mb-4 text-foreground">
                 A mente por trás <br />
                 <span className="italic font-light text-foreground">da Malab.</span>
               </h2>
@@ -56,7 +56,7 @@ export const CEOSection = () => {
               </div>
 
               <div className="mt-auto pt-6 pl-1">
-                <h3 className="text-2xl font-bold text-foreground">Aluizer Malab</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-foreground">Aluizer Malab</h3>
                 <p className="text-foreground/80 font-semibold tracking-wide uppercase text-xs mt-1">
                   CEO & Fundador
                 </p>
@@ -64,14 +64,14 @@ export const CEOSection = () => {
             </div>
 
             {/* Text */}
-            <div className="lg:col-span-7 animate-slide-up flex flex-col h-full gap-8 justify-between">
+            <div className="lg:col-span-7 animate-slide-up flex flex-col h-full gap-6 md:gap-8 justify-between">
 
-              <p className="text-2xl md:text-3xl font-light leading-snug text-foreground/90 italic">
+              <p className="text-xl leading-[1.5] font-light md:text-3xl md:leading-snug text-foreground/90 italic">
                 "Mais de três décadas transformando a cena cultural de Minas Gerais
                 em referência nacional."
               </p>
 
-              <div className="space-y-5 text-base md:text-lg leading-relaxed text-foreground/75">
+              <div className="space-y-5 text-base leading-[1.6] md:text-lg md:leading-relaxed text-foreground/75">
                 <p>
                   Um dos mais influentes produtores culturais de Minas Gerais, com uma trajetória
                   dedicada à promoção e produção de eventos artísticos e musicais de grande porte.
@@ -100,7 +100,7 @@ export const CEOSection = () => {
                     <p className="text-[10px] tracking-[0.2em] uppercase text-foreground/70 font-semibold">
                       {h.k}
                     </p>
-                    <p className="text-sm md:text-base text-foreground mt-2 leading-snug">
+                    <p className="text-base md:text-base text-foreground mt-2 leading-snug">
                       {h.v}
                     </p>
                   </div>

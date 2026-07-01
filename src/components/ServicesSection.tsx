@@ -135,10 +135,10 @@ const RevealService = ({ item, index }: RevealServiceProps) => {
       <div className="relative flex flex-col md:flex-row items-stretch rounded-2xl border border-background/60 overflow-hidden transition-transform duration-500 group-hover:scale-[1.01]">
         {/* Left: title + tagline */}
         <div className="flex flex-col justify-center px-6 md:px-10 py-6 md:py-8 md:min-w-[320px] md:max-w-[360px]">
-          <h3 className="text-2xl md:text-3xl font-bold text-background leading-tight">
+          <h3 className="text-xl leading-[1.2] md:text-3xl font-bold text-background">
             {item.title}
           </h3>
-          <span className="mt-2 text-base md:text-lg italic font-light text-secondary">
+          <span className="mt-2 text-base leading-[1.5] italic font-light text-secondary md:text-lg">
             {item.result}
           </span>
         </div>
@@ -149,12 +149,12 @@ const RevealService = ({ item, index }: RevealServiceProps) => {
 
         {/* Right: description + features */}
         <div className="flex flex-col justify-center px-6 md:px-10 py-6 md:py-8 flex-1 gap-4">
-          <p className="text-lg md:text-2xl font-light text-background tracking-tight italic">
+          <p className="text-lg leading-[1.5] font-light text-background tracking-tight italic md:text-2xl">
             "{item.description}"
           </p>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
             {item.features.map((feature, i) => (
-              <li key={i} className="flex items-center text-sm md:text-base text-background/85">
+              <li key={i} className="flex items-center text-base leading-[1.6] text-background/85">
                 <div className="w-1.5 h-1.5 bg-secondary rounded-full mr-3 shrink-0"></div>
                 {feature}
               </li>
@@ -207,13 +207,13 @@ const RevealDifferential = ({ item, index }: RevealDifferentialProps) => {
     >
       <div className="relative flex items-stretch rounded-2xl border border-background/60 overflow-hidden transition-transform duration-500 group-hover:scale-[1.01]">
         <div className="flex items-center px-6 md:px-10 py-6 md:py-8 min-w-[200px] md:min-w-[300px]">
-          <h4 className="text-xl md:text-2xl font-bold text-background leading-tight">
+          <h4 className="text-lg leading-[1.2] md:text-2xl font-bold text-background">
             {item.title}
           </h4>
         </div>
         <div className="w-px bg-background/30 my-5" />
         <div className="flex items-center px-6 md:px-10 py-6 md:py-8 flex-1">
-          <p className="text-base md:text-xl font-light text-background tracking-tight">
+          <p className="text-base leading-[1.5] md:text-xl font-light text-background tracking-tight">
             {item.description}
           </p>
         </div>
@@ -226,7 +226,7 @@ export const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="relative py-24 md:py-32 overflow-hidden bg-black"
+      className="relative py-[4.5rem] md:py-32 overflow-hidden bg-black"
     >
       {/* Background photo, full B&W */}
       <div
@@ -262,11 +262,11 @@ export const ServicesSection = () => {
       <div className="container mx-auto px-4 relative">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <Reveal className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-background">
+          <Reveal className="text-center mb-10 md:mb-16">
+            <h2 className="text-[30px] leading-[1.15] font-bold mb-3 md:text-5xl md:mb-6 text-background">
               Serviços de Produção Cultural <br /> em Minas Gerais
             </h2>
-            <p className="text-lg md:text-xl font-light text-background max-w-3xl mx-auto">
+            <p className="text-lg leading-[1.5] font-light text-background max-w-3xl mx-auto">
               Oferecemos soluções completas para eventos, shows e festivais. Da concepção
               à execução, transformamos ideias em experiências inesquecíveis.
             </p>
@@ -285,7 +285,7 @@ export const ServicesSection = () => {
             <Button
               variant="hero"
               size="lg"
-              className="text-lg px-8"
+              className="text-base md:text-lg px-8"
               onClick={() => window.location.href = 'mailto:aluizer@malab.com.br'}
             >
               Vamos conversar
@@ -302,7 +302,7 @@ export const DifferentialsSection = () => {
   return (
     <section
       id="differentials"
-      className="relative py-24 md:py-32 overflow-hidden bg-[hsl(265_70%_18%)]"
+      className="relative py-[4.5rem] md:py-32 overflow-hidden bg-[hsl(265_70%_18%)]"
     >
       {/* ambient glows */}
       <div className="pointer-events-none absolute -top-32 left-1/4 -translate-x-1/2 h-[420px] w-[820px] rounded-full bg-primary/25 blur-3xl" />
@@ -310,8 +310,8 @@ export const DifferentialsSection = () => {
 
       <div className="container mx-auto px-4 relative">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-background animate-fade-in">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-[30px] leading-[1.15] font-bold md:text-5xl text-background animate-fade-in">
               Como Fazemos a Diferença
             </h2>
           </div>

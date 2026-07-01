@@ -32,7 +32,7 @@ export const AboutSection = () => {
 
   return (
     <section id="about" className="relative bg-secondary overflow-hidden">
-      <div className="container mx-auto px-4 pt-24 pb-16">
+      <div className="container mx-auto px-4 pt-16 pb-10 md:pt-24 md:pb-16">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch relative">
           {/* Watermark "30" */}
           <div
@@ -44,21 +44,21 @@ export const AboutSection = () => {
 
           {/* Left column: Narrative */}
           <div className="lg:col-span-7 relative z-10 text-foreground flex flex-col justify-between gap-10 h-full">
-            <header className="space-y-4 animate-fade-in">
+            <header className="space-y-3 md:space-y-4 animate-fade-in">
               <div className="flex items-center gap-4">
                 <span className="h-[2px] w-12 bg-foreground" />
                 <span className="text-foreground font-semibold tracking-[0.2em] uppercase text-xs">
                   Legado & Visão
                 </span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-bold leading-[1.05] text-foreground">
+              <h2 className="text-[30px] leading-[1.15] font-bold text-foreground mb-3 md:text-6xl md:leading-[1.05] md:mb-4">
                 Quem Somos: <br />
                 <span className="italic font-light">Três décadas</span> de impacto.
               </h2>
             </header>
 
-            <div className="space-y-6 text-lg leading-relaxed text-foreground/90 max-w-2xl animate-slide-up">
-              <p className="text-xl italic text-foreground font-light">
+            <div className="space-y-5 text-base leading-[1.6] text-foreground/90 max-w-2xl animate-slide-up">
+              <p className="text-lg italic leading-[1.5] text-foreground font-light">
                 30 anos transformando Minas Gerais no epicentro cultural do Brasil.
               </p>
               <p>
@@ -118,7 +118,7 @@ export const AboutSection = () => {
 
       {/* Values band */}
       <div className="bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 py-16">
+        <div className="container mx-auto px-4 py-10 md:py-16">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
             {values.map((v, i) => (
               <div
@@ -130,10 +130,10 @@ export const AboutSection = () => {
                   {v.n}
                 </span>
                 <div>
-                  <h4 className="text-2xl md:text-3xl font-extrabold tracking-wide uppercase">
+                  <h4 className="text-xl md:text-3xl font-extrabold tracking-wide uppercase">
                     {v.t}
                   </h4>
-                  <p className="text-primary-foreground/80 text-sm md:text-base mt-1 max-w-xs">
+                  <p className="text-primary-foreground/80 text-base leading-[1.6] md:text-base mt-1 max-w-xs">
                     {v.d}
                   </p>
                 </div>

@@ -92,14 +92,14 @@ const EventsSection = () => {
   }, [visible]);
 
   return (
-    <section id="eventos" className="py-20 bg-primary">
+    <section id="eventos" className="py-14 md:py-20 bg-primary">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-[30px] leading-[1.15] font-bold mb-3 md:text-5xl md:mb-6 text-primary-foreground">
             Próximos Eventos em Belo Horizonte
           </h2>
-          <p className="text-xl font-light text-primary-foreground/80 max-w-3xl mx-auto">
+          <p className="text-lg leading-[1.5] font-light text-primary-foreground/80 max-w-3xl mx-auto">
             Agenda atualizada dos melhores eventos culturais e shows em Minas Gerais.
           </p>
         </div>
@@ -166,12 +166,12 @@ const EventsSection = () => {
                   </div>
 
                   <div className={featured ? 'p-4 md:p-7' : 'p-4 md:p-5'}>
-                    <h3 className={`font-bold text-foreground mb-3 text-lg ${featured ? 'md:text-2xl md:mb-4' : ''}`}>
+                    <h3 className={`font-bold text-foreground mb-3 text-base leading-[1.3] ${featured ? 'md:text-2xl md:mb-4' : 'md:text-lg'}`}>
                       {event.title}
                     </h3>
 
                     {featured ? (
-                      <p className="hidden md:block text-muted-foreground mb-6 leading-relaxed">
+                      <p className="hidden md:block text-base leading-[1.6] text-muted-foreground mb-6">
                         {event.description}
                       </p>
                     ) : null}
@@ -192,7 +192,7 @@ const EventsSection = () => {
 
                     <Button
                       size="sm"
-                      className={`w-full rounded-full font-semibold tracking-wide text-xs md:text-sm bg-gradient-to-r from-primary/80 to-accent/80 text-primary-foreground hover:opacity-90 ${
+                      className={`w-full rounded-full font-semibold tracking-wide text-base md:text-sm bg-gradient-to-r from-primary/80 to-accent/80 text-primary-foreground hover:opacity-90 ${
                         featured ? 'md:from-primary md:via-primary md:to-accent' : ''
                       }`}
                       onClick={() => window.open(event.link, '_blank')}
@@ -211,11 +211,11 @@ const EventsSection = () => {
 
 
         {/* CTA Section */}
-        <div className="text-center bg-background/10 backdrop-blur-sm rounded-2xl p-8 border border-background/20">
-          <h3 className="text-2xl font-bold text-primary-foreground mb-4">
+        <div className="text-center bg-background/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-background/20">
+          <h3 className="text-xl md:text-2xl font-bold text-primary-foreground mb-3 md:mb-4">
             Quer ser o primeiro a saber dos nossos eventos?
           </h3>
-          <p className="text-primary-foreground/80 mb-6 max-w-2xl mx-auto">
+          <p className="text-base leading-[1.6] text-primary-foreground/80 mb-6 max-w-2xl mx-auto">
             Cadastre-se em nossa newsletter e receba informações exclusivas sobre lançamentos de ingressos,
             promoções especiais e eventos VIP.
           </p>
@@ -225,7 +225,7 @@ const EventsSection = () => {
               placeholder="Seu melhor e-mail"
               className="flex-1 h-12 px-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
             />
-            <Button className="h-12 px-8 shrink-0">Cadastrar</Button>
+            <Button className="h-12 px-8 shrink-0 text-base">Cadastrar</Button>
           </div>
         </div>
       </div>

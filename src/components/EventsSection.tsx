@@ -165,17 +165,15 @@ const EventsSection = () => {
                     />
                   </div>
 
-                  <div className={featured ? 'p-4 md:p-7' : 'p-4 md:p-5'}>
-                    <h3 className={`font-bold text-foreground mb-3 text-base leading-[1.3] ${featured ? 'md:text-2xl md:mb-4' : 'md:text-lg'}`}>
+                  <div className="p-4 md:p-5 flex flex-col flex-1">
+                    <h3 className="font-bold text-foreground mb-3 text-base leading-[1.3] md:text-lg">
                       {event.title}
                     </h3>
 
-                    {featured ? (
-                      <p className="hidden md:block text-base leading-[1.6] text-muted-foreground mb-6">
-                        {event.description}
-                      </p>
-                    ) : null}
-                    <ul className={`space-y-2 mb-5 text-muted-foreground ${featured ? 'block md:hidden' : 'block'}`}>
+                    <p className="hidden md:block text-sm leading-[1.5] text-muted-foreground mb-4 flex-1">
+                      {event.description}
+                    </p>
+                    <ul className="space-y-2 mb-5 text-muted-foreground md:hidden">
                       <li className="flex items-center gap-2">
                         <MapPin className="h-3.5 w-3.5 text-primary shrink-0" />
                         <span className="text-xs">{event.location}</span>
@@ -192,9 +190,7 @@ const EventsSection = () => {
 
                     <Button
                       size="sm"
-                      className={`w-full rounded-full font-semibold tracking-wide text-base md:text-sm bg-gradient-to-r from-primary/80 to-accent/80 text-primary-foreground hover:opacity-90 ${
-                        featured ? 'md:from-primary md:via-primary md:to-accent' : ''
-                      }`}
+                      className="w-full rounded-full font-semibold tracking-wide text-base md:text-sm bg-gradient-to-r from-primary/80 to-accent/80 text-primary-foreground hover:opacity-90 mt-auto"
                       onClick={() => window.open(event.link, '_blank')}
                     >
                       {event.ctaLabel || (featured ? 'Compre Agora' : 'Saiba Mais')}

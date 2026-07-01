@@ -109,7 +109,7 @@ const EventsSection = () => {
                 >
                   <div className="relative overflow-hidden aspect-[3/4] bg-muted">
                     {event.done && (
-                      <div className="absolute top-0 left-0 z-20 w-72 -translate-x-1/4 translate-y-6 -rotate-45 bg-gradient-to-r from-black/95 to-black/80 backdrop-blur-sm py-2.5 shadow-xl">
+                      <div className="absolute top-[10%] -left-[12%] z-20 w-[150%] -rotate-45 bg-gradient-to-r from-black/95 to-black/80 backdrop-blur-sm py-2.5 shadow-xl">
                         <div className="flex items-center justify-center gap-2">
                           <Check className="h-4 w-4 text-white" strokeWidth={3} />
                           <span className="text-xs font-bold tracking-[0.2em] uppercase text-white">

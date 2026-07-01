@@ -143,18 +143,10 @@ export const Footer = () => {
 
 
         {/* Bottom bar */}
-        <div className="border-t border-background/15 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-background/50 text-xs">
+        <div className="border-t border-background/15 pt-6 flex items-center justify-center">
+          <p className="text-background/50 text-xs text-center">
             © {currentYear} Malab Produções. Todos os direitos reservados.
           </p>
-          <div className="flex gap-6 text-xs">
-            <a href="#" className="text-background/50 hover:text-background transition-colors">
-              Política de Privacidade
-            </a>
-            <a href="#" className="text-background/50 hover:text-background transition-colors">
-              Termos de Uso
-            </a>
-          </div>
         </div>
       </div>
     </footer>

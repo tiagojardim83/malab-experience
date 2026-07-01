@@ -219,13 +219,15 @@ const EventsSection = () => {
             Cadastre-se em nossa newsletter e receba informações exclusivas sobre lançamentos de ingressos,
             promoções especiais e eventos VIP.
           </p>
-          <div className="flex flex-col sm:flex-row items-stretch gap-4 max-w-md mx-auto">
+          <div className="flex flex-col items-stretch gap-4 max-w-md mx-auto">
             <input
               type="email"
               placeholder="Seu melhor e-mail"
-              className="flex-1 h-12 px-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full h-12 px-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
             />
-            <Button className="h-12 px-8 shrink-0 text-base w-full sm:w-auto">Cadastrar</Button>
+            <Button className="w-full h-12 px-8 shrink-0 text-base bg-primary text-secondary hover:bg-primary/90 border-transparent">
+              Cadastrar
+            </Button>
           </div>
         </div>
       </div>

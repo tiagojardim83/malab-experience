@@ -161,7 +161,7 @@ const EventsSection = () => {
                       }`}
                       onClick={() => window.open(event.link, '_blank')}
                     >
-                      {featured ? 'Compre Agora' : 'Saiba Mais'}
+                      {event.ctaLabel || (featured ? 'Compre Agora' : 'Saiba Mais')}
                       <ChevronRight className="h-4 w-4 ml-1" />
                     </Button>
                   </div>

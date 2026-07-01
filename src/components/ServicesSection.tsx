@@ -285,7 +285,7 @@ export const ServicesSection = () => {
             <Button
               variant="hero"
               size="lg"
-              className="text-lg px-8"
+              className="text-base md:text-lg px-8"
               onClick={() => window.location.href = 'mailto:aluizer@malab.com.br'}
             >
               Vamos conversar

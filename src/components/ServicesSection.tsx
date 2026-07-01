@@ -264,7 +264,7 @@ export const ServicesSection = () => {
           {/* Header */}
           <Reveal className="text-center mb-10 md:mb-16">
             <h2 className="text-[30px] leading-[1.15] font-bold mb-3 md:text-5xl md:mb-6 text-background">
-              Serviços de Produção Cultural <br /> em Minas Gerais
+              Serviços de Produção Cultural em MG
             </h2>
             <p className="text-lg leading-[1.5] font-light text-background max-w-3xl mx-auto">
               Oferecemos soluções completas para eventos, shows e festivais. Da concepção

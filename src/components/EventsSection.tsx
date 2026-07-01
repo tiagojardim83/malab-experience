@@ -164,8 +164,8 @@ const EventsSection = () => {
                     />
                   </div>
 
-                  <div className={featured ? 'p-6 md:p-7' : 'p-4 md:p-5'}>
-                    <h3 className={`font-bold text-foreground mb-3 ${featured ? 'text-2xl mb-4' : 'text-lg'}`}>
+                  <div className={featured ? 'p-4 md:p-7' : 'p-4 md:p-5'}>
+                    <h3 className={`font-bold text-foreground mb-3 text-lg ${featured ? 'md:text-2xl md:mb-4' : ''}`}>
                       {event.title}
                     </h3>
 

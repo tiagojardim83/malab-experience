@@ -302,7 +302,7 @@ export const DifferentialsSection = () => {
   return (
     <section
       id="differentials"
-      className="relative py-24 md:py-32 overflow-hidden bg-[hsl(265_70%_18%)]"
+      className="relative py-[4.5rem] md:py-32 overflow-hidden bg-[hsl(265_70%_18%)]"
     >
       {/* ambient glows */}
       <div className="pointer-events-none absolute -top-32 left-1/4 -translate-x-1/2 h-[420px] w-[820px] rounded-full bg-primary/25 blur-3xl" />
@@ -310,8 +310,8 @@ export const DifferentialsSection = () => {
 
       <div className="container mx-auto px-4 relative">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-background animate-fade-in">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-[30px] leading-[1.15] font-bold md:text-5xl text-background animate-fade-in">
               Como Fazemos a Diferença
             </h2>
           </div>

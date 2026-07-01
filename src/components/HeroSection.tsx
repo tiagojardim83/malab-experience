@@ -45,12 +45,13 @@ export const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 text-center text-background">
         <div className="max-w-4xl mx-auto animate-fade-in">
           <h1 className="text-[36px] leading-[1.1] font-bold mb-4 md:text-7xl md:leading-tight md:mb-6 whitespace-pre-line">
-            O Palco onde&nbsp;{"\n"}
+            O Palco onde&nbsp;
             <span className="text-secondary">Minas</span> se Encontra com o <span className="text-secondary">Mundo</span>
           </h1>
           
-          <p className="text-lg leading-[1.5] font-light mb-8 md:text-xl md:mb-12 opacity-80 max-w-2xl mx-auto">
-            Há quase três décadas, conectamos artistas, plateias e cidades inteiras a experiências inesquecíveis.
+          <p className="text-lg leading-[1.5] font-light mb-8 md:text-xl md:mb-12 opacity-80 max-w-2xl mx-auto whitespace-pre-line">
+            Há quase três décadas, conectamos artistas, plateias e&nbsp;{"\n"}
+            cidades inteiras a experiências inesquecíveis.
           </p>
           
           <div className="flex justify-center items-center mb-8 md:mb-16">

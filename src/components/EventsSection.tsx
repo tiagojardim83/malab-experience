@@ -170,25 +170,24 @@ const EventsSection = () => {
                     </h3>
 
                     {featured ? (
-                      <p className="text-muted-foreground mb-6 leading-relaxed">
+                      <p className="hidden md:block text-muted-foreground mb-6 leading-relaxed">
                         {event.description}
                       </p>
-                    ) : (
-                      <ul className="space-y-2 mb-5 text-muted-foreground">
-                        <li className="flex items-center gap-2">
-                          <MapPin className="h-3.5 w-3.5 text-primary shrink-0" />
-                          <span className="text-xs">{event.location}</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Clock className="h-3.5 w-3.5 text-primary shrink-0" />
-                          <span className="text-xs">{event.time}</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Ticket className="h-3.5 w-3.5 text-primary shrink-0" />
-                          <span className="text-xs">{event.price}</span>
-                        </li>
-                      </ul>
-                    )}
+                    ) : null}
+                    <ul className={`space-y-2 mb-5 text-muted-foreground ${featured ? 'block md:hidden' : 'block'}`}>
+                      <li className="flex items-center gap-2">
+                        <MapPin className="h-3.5 w-3.5 text-primary shrink-0" />
+                        <span className="text-xs">{event.location}</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Clock className="h-3.5 w-3.5 text-primary shrink-0" />
+                        <span className="text-xs">{event.time}</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Ticket className="h-3.5 w-3.5 text-primary shrink-0" />
+                        <span className="text-xs">{event.price}</span>
+                      </li>
+                    </ul>
 
                     <Button
                       size={featured ? 'default' : 'sm'}

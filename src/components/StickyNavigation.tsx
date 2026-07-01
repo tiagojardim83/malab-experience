@@ -112,7 +112,7 @@ export const StickyNavigation = () => {
           
           {/* Desktop Contact Button */}
           <div className="hidden md:block">
-            <Button variant="hero" size="sm" onClick={() => scrollToSection('contact')}>
+            <Button variant="hero" size="sm" onClick={() => window.location.href = 'mailto:aluizer@malab.com.br'}>
               Fale Conosco
             </Button>
           </div>
@@ -145,9 +145,9 @@ export const StickyNavigation = () => {
                   {section.label}
                 </Button>
               ))}
-              <Button 
-                variant="hero" 
-                onClick={() => scrollToSection('contact')}
+              <Button
+                variant="hero"
+                onClick={() => window.location.href = 'mailto:aluizer@malab.com.br'}
                 className="w-full mt-4"
               >
                 Fale Conosco

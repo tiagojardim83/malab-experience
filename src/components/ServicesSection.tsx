@@ -282,7 +282,12 @@ export const ServicesSection = () => {
 
           {/* CTA */}
           <Reveal className="text-center" delay={150}>
-            <Button variant="hero" size="lg" className="text-lg px-8">
+            <Button
+              variant="hero"
+              size="lg"
+              className="text-lg px-8"
+              onClick={() => window.location.href = 'mailto:aluizer@malab.com.br'}
+            >
               Vamos conversar
             </Button>
           </Reveal>

@@ -159,7 +159,7 @@ export const ImpactSection = () => {
             <h2 className="text-[30px] leading-[1.15] font-bold mb-3 md:text-5xl md:mb-6 text-background">
               Impacto em Números
             </h2>
-            <p className="text-lg leading-[1.5] font-light text-background max-w-3xl mx-auto whitespace-pre-line">
+            <p className="text-lg leading-[1.5] font-light text-background max-w-3xl mx-auto md:whitespace-pre-line">
               Nosso impacto vai além das luzes do palco: ele movimenta cidades,&nbsp;inspira pessoas&nbsp;{"\n"}
               e gera oportunidades.
             </p>

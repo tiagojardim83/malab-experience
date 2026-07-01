@@ -26,7 +26,7 @@ export const BrandsMarquee = () => {
   return (
     <section className="py-12 bg-primary text-primary-foreground overflow-hidden border-y border-secondary/30">
       <div className="container mx-auto px-4 mb-16 md:mb-20">
-        <p className="text-center text-sm md:text-base uppercase tracking-[0.3em] text-secondary font-semibold whitespace-pre-line">
+        <p className="text-center text-sm md:text-base uppercase tracking-[0.3em] text-secondary font-semibold md:whitespace-pre-line">
           MARCAS QUE JÁ&nbsp;{"\n"}CONFIARAM NA MALAB
         </p>
       </div>

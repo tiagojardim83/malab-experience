@@ -226,7 +226,7 @@ export const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="relative py-24 md:py-32 overflow-hidden bg-black"
+      className="relative py-[4.5rem] md:py-32 overflow-hidden bg-black"
     >
       {/* Background photo, full B&W */}
       <div
@@ -262,11 +262,11 @@ export const ServicesSection = () => {
       <div className="container mx-auto px-4 relative">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <Reveal className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-background">
+          <Reveal className="text-center mb-10 md:mb-16">
+            <h2 className="text-[30px] leading-[1.15] font-bold mb-3 md:text-5xl md:mb-6 text-background">
               Serviços de Produção Cultural <br /> em Minas Gerais
             </h2>
-            <p className="text-lg md:text-xl font-light text-background max-w-3xl mx-auto">
+            <p className="text-lg leading-[1.5] font-light text-background max-w-3xl mx-auto">
               Oferecemos soluções completas para eventos, shows e festivais. Da concepção
               à execução, transformamos ideias em experiências inesquecíveis.
             </p>

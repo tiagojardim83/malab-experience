@@ -135,7 +135,7 @@ const RevealService = ({ item, index }: RevealServiceProps) => {
       <div className="relative flex flex-col md:flex-row items-stretch rounded-2xl border border-background/60 overflow-hidden transition-transform duration-500 group-hover:scale-[1.01]">
         {/* Left: title + tagline */}
         <div className="flex flex-col justify-center px-6 md:px-10 py-6 md:py-8 md:min-w-[320px] md:max-w-[360px]">
-          <h3 className="text-xl leading-[1.2] md:text-3xl font-bold text-background leading-tight">
+          <h3 className="text-xl leading-[1.2] md:text-3xl font-bold text-background">
             {item.title}
           </h3>
           <span className="mt-2 text-base leading-[1.5] italic font-light text-secondary md:text-lg">
@@ -207,7 +207,7 @@ const RevealDifferential = ({ item, index }: RevealDifferentialProps) => {
     >
       <div className="relative flex items-stretch rounded-2xl border border-background/60 overflow-hidden transition-transform duration-500 group-hover:scale-[1.01]">
         <div className="flex items-center px-6 md:px-10 py-6 md:py-8 min-w-[200px] md:min-w-[300px]">
-          <h4 className="text-lg leading-[1.2] md:text-2xl font-bold text-background leading-tight">
+          <h4 className="text-lg leading-[1.2] md:text-2xl font-bold text-background">
             {item.title}
           </h4>
         </div>

@@ -97,7 +97,7 @@ const RevealRow = ({ item, index }: RevealRowProps) => {
           <div className="leading-none">
             <CounterAnimation end={item.number} suffix={item.suffix} duration={2200} />
           </div>
-          <span className="mt-1 text-base md:text-lg italic font-light text-background/85">
+          <span className="mt-1 text-base leading-[1.5] italic font-light text-background/85">
             {item.sub}
           </span>
         </div>
@@ -107,7 +107,7 @@ const RevealRow = ({ item, index }: RevealRowProps) => {
 
         {/* Right: description */}
         <div className="flex items-center px-6 md:px-10 py-6 md:py-8 flex-1">
-          <p className="text-xl md:text-3xl font-light text-background tracking-tight">
+          <p className="text-lg leading-[1.5] font-light text-background tracking-tight md:text-3xl">
             {item.description}
           </p>
         </div>

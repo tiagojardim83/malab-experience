@@ -207,13 +207,13 @@ const RevealDifferential = ({ item, index }: RevealDifferentialProps) => {
     >
       <div className="relative flex items-stretch rounded-2xl border border-background/60 overflow-hidden transition-transform duration-500 group-hover:scale-[1.01]">
         <div className="flex items-center px-6 md:px-10 py-6 md:py-8 min-w-[200px] md:min-w-[300px]">
-          <h4 className="text-xl md:text-2xl font-bold text-background leading-tight">
+          <h4 className="text-lg leading-[1.2] md:text-2xl font-bold text-background leading-tight">
             {item.title}
           </h4>
         </div>
         <div className="w-px bg-background/30 my-5" />
         <div className="flex items-center px-6 md:px-10 py-6 md:py-8 flex-1">
-          <p className="text-base md:text-xl font-light text-background tracking-tight">
+          <p className="text-base leading-[1.5] md:text-xl font-light text-background tracking-tight">
             {item.description}
           </p>
         </div>

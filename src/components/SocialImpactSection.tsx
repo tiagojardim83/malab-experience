@@ -47,7 +47,7 @@ const RevealCard = ({ area, index }: RevealCardProps) => {
       className={visible ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-10 blur-[6px]'}
     >
       <Card className="bg-transparent border-2 border-[#F5E6CC] rounded-2xl shadow-none hover:bg-[#F5E6CC]/10 transition-colors h-full">
-        <CardContent className="p-8 flex flex-col h-full">
+        <CardContent className="p-6 md:p-8 flex flex-col h-full">
           <div className="flex items-center justify-between mb-6">
             <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl border border-[#F5E6CC]/60 text-[#F5E6CC]">
               <Icon size={28} strokeWidth={1.5} />
@@ -58,10 +58,10 @@ const RevealCard = ({ area, index }: RevealCardProps) => {
               )}
             </span>
           </div>
-          <h3 className="text-xl font-semibold mb-3 text-[#F5E6CC]">
+          <h3 className="text-lg md:text-xl font-semibold mb-3 text-[#F5E6CC]">
             {area.title}
           </h3>
-          <p className="text-[#F5E6CC]/85 leading-relaxed mb-4">
+          <p className="text-base leading-[1.6] text-[#F5E6CC]/85 mb-4">
             {area.description}
           </p>
           <p className="mt-auto text-xs uppercase tracking-[0.2em] text-[#F5E6CC]/70 font-semibold">

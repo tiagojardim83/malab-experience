@@ -311,8 +311,8 @@ export const DifferentialsSection = () => {
       <div className="container mx-auto px-4 relative">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10 md:mb-16">
-            <h2 className="text-[30px] leading-[1.15] font-bold md:text-5xl text-background animate-fade-in">
-              Como Fazemos a Diferença
+            <h2 className="text-[30px] leading-[1.15] font-bold md:text-5xl text-background animate-fade-in whitespace-pre-line">
+              Como Fazemos&nbsp;{"\n"}a Diferença
             </h2>
           </div>
 

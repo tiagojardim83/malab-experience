@@ -64,14 +64,14 @@ export const CEOSection = () => {
             </div>
 
             {/* Text */}
-            <div className="lg:col-span-7 animate-slide-up flex flex-col h-full gap-8 justify-between">
+            <div className="lg:col-span-7 animate-slide-up flex flex-col h-full gap-6 md:gap-8 justify-between">
 
-              <p className="text-2xl md:text-3xl font-light leading-snug text-foreground/90 italic">
+              <p className="text-xl leading-[1.5] font-light md:text-3xl md:leading-snug text-foreground/90 italic">
                 "Mais de três décadas transformando a cena cultural de Minas Gerais
                 em referência nacional."
               </p>
 
-              <div className="space-y-5 text-base md:text-lg leading-relaxed text-foreground/75">
+              <div className="space-y-5 text-base leading-[1.6] md:text-lg md:leading-relaxed text-foreground/75">
                 <p>
                   Um dos mais influentes produtores culturais de Minas Gerais, com uma trajetória
                   dedicada à promoção e produção de eventos artísticos e musicais de grande porte.

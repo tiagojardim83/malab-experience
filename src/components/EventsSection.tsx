@@ -212,8 +212,8 @@ const EventsSection = () => {
 
         {/* CTA Section */}
         <div className="text-center bg-background/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-background/20">
-          <h3 className="text-xl md:text-2xl font-bold text-primary-foreground mb-3 md:mb-4">
-            Quer ser o primeiro a saber dos nossos eventos?
+          <h3 className="text-xl md:text-2xl font-bold text-primary-foreground mb-3 md:mb-4 whitespace-pre-line">
+            Quer ser o primeiro a saber&nbsp;{"\n"}dos nossos eventos?
           </h3>
           <p className="text-base leading-[1.6] text-primary-foreground/80 mb-6 max-w-2xl mx-auto">
             Cadastre-se em nossa newsletter e receba informações exclusivas sobre lançamentos de ingressos,

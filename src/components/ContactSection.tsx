@@ -113,7 +113,7 @@ export const ContactSection = () => {
                   <Button
                     type="submit"
                     size="lg"
-                    className="px-12 bg-transparent border-2 border-[#F5E6CC] text-[#F5E6CC] hover:bg-[#F5E6CC] hover:text-[#F25C2A] transition-colors"
+                    className="text-base px-12 bg-transparent border-2 border-[#F5E6CC] text-[#F5E6CC] hover:bg-[#F5E6CC] hover:text-[#F25C2A] transition-colors"
                   >
                     Enviar proposta
                   </Button>

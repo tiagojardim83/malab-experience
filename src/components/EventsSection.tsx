@@ -166,12 +166,12 @@ const EventsSection = () => {
                   </div>
 
                   <div className={featured ? 'p-4 md:p-7' : 'p-4 md:p-5'}>
-                    <h3 className={`font-bold text-foreground mb-3 text-lg ${featured ? 'md:text-2xl md:mb-4' : ''}`}>
+                    <h3 className={`font-bold text-foreground mb-3 text-base leading-[1.3] ${featured ? 'md:text-2xl md:mb-4' : 'md:text-lg'}`}>
                       {event.title}
                     </h3>
 
                     {featured ? (
-                      <p className="hidden md:block text-muted-foreground mb-6 leading-relaxed">
+                      <p className="hidden md:block text-base leading-[1.6] text-muted-foreground mb-6">
                         {event.description}
                       </p>
                     ) : null}
@@ -192,7 +192,7 @@ const EventsSection = () => {
 
                     <Button
                       size="sm"
-                      className={`w-full rounded-full font-semibold tracking-wide text-xs md:text-sm bg-gradient-to-r from-primary/80 to-accent/80 text-primary-foreground hover:opacity-90 ${
+                      className={`w-full rounded-full font-semibold tracking-wide text-base md:text-sm bg-gradient-to-r from-primary/80 to-accent/80 text-primary-foreground hover:opacity-90 ${
                         featured ? 'md:from-primary md:via-primary md:to-accent' : ''
                       }`}
                       onClick={() => window.open(event.link, '_blank')}

@@ -36,6 +36,7 @@ const EventsSection = () => {
       description: '31.12 · 18h · Praça da Liberdade · BH/MG. Virada da Liberdade com Biquíni, Juarez Moreira, Lagum, Aline Calixto e Pé de Sonho.',
       image: viradaLiberdade.url,
       link: 'https://www.sympla.com.br',
+      done: true,
     },
   ];
 

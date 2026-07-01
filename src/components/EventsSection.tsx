@@ -69,17 +69,18 @@ const EventsSection = () => {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = Number(entry.target.getAttribute('data-event-id'));
-            setCenteredId(id);
-          }
-        });
+        const intersecting = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (intersecting.length > 0) {
+          const id = Number(intersecting[0].target.getAttribute('data-event-id'));
+          setCenteredId(id);
+        }
       },
       {
         root: containerRef.current,
-        rootMargin: '0px -45% 0px -45%',
-        threshold: 0.5,
+        rootMargin: '0px -35% 0px -35%',
+        threshold: 0,
       },
     );
 

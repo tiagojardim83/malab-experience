@@ -44,8 +44,8 @@ export const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-background">
         <div className="max-w-4xl mx-auto animate-fade-in">
-          <h1 className="text-[36px] leading-[1.1] font-bold mb-4 md:text-7xl md:leading-tight md:mb-6 whitespace-pre-line">
-            O Palco onde&nbsp;{"\n"}
+          <h1 className="text-[36px] leading-[1.1] font-bold mb-4 md:text-7xl md:leading-tight md:mb-6 whitespace-pre-line md:whitespace-normal">
+            O Palco onde&nbsp;
             <span className="text-secondary">Minas</span> se Encontra com o <span className="text-secondary">Mundo</span>
           </h1>
           

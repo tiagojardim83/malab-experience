@@ -135,10 +135,10 @@ const RevealService = ({ item, index }: RevealServiceProps) => {
       <div className="relative flex flex-col md:flex-row items-stretch rounded-2xl border border-background/60 overflow-hidden transition-transform duration-500 group-hover:scale-[1.01]">
         {/* Left: title + tagline */}
         <div className="flex flex-col justify-center px-6 md:px-10 py-6 md:py-8 md:min-w-[320px] md:max-w-[360px]">
-          <h3 className="text-2xl md:text-3xl font-bold text-background leading-tight">
+          <h3 className="text-xl leading-[1.2] md:text-3xl font-bold text-background leading-tight">
             {item.title}
           </h3>
-          <span className="mt-2 text-base md:text-lg italic font-light text-secondary">
+          <span className="mt-2 text-base leading-[1.5] italic font-light text-secondary md:text-lg">
             {item.result}
           </span>
         </div>
@@ -149,12 +149,12 @@ const RevealService = ({ item, index }: RevealServiceProps) => {
 
         {/* Right: description + features */}
         <div className="flex flex-col justify-center px-6 md:px-10 py-6 md:py-8 flex-1 gap-4">
-          <p className="text-lg md:text-2xl font-light text-background tracking-tight italic">
+          <p className="text-lg leading-[1.5] font-light text-background tracking-tight italic md:text-2xl">
             "{item.description}"
           </p>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
             {item.features.map((feature, i) => (
-              <li key={i} className="flex items-center text-sm md:text-base text-background/85">
+              <li key={i} className="flex items-center text-base leading-[1.6] text-background/85">
                 <div className="w-1.5 h-1.5 bg-secondary rounded-full mr-3 shrink-0"></div>
                 {feature}
               </li>

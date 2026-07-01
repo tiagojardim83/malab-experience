@@ -190,11 +190,9 @@ const EventsSection = () => {
                     </ul>
 
                     <Button
-                      size={featured ? 'sm' : 'sm'}
-                      className={`w-full rounded-full font-semibold tracking-wide text-xs md:text-sm ${
-                        featured
-                          ? 'md:bg-gradient-to-r from-primary via-primary to-accent text-primary-foreground hover:opacity-90 md:from-primary md:via-primary md:to-accent'
-                          : 'bg-gradient-to-r from-primary/80 to-accent/80 text-primary-foreground hover:opacity-90'
+                      size="sm"
+                      className={`w-full rounded-full font-semibold tracking-wide text-xs md:text-sm bg-gradient-to-r from-primary/80 to-accent/80 text-primary-foreground hover:opacity-90 ${
+                        featured ? 'md:from-primary md:via-primary md:to-accent' : ''
                       }`}
                       onClick={() => window.open(event.link, '_blank')}
                     >

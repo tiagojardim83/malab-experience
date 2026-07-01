@@ -61,7 +61,7 @@ const EventsSection = () => {
 
   // Mobile scroll-centered card scaling
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const cardRefs = useRef<(HTMLElement | null)[]>([]);
   const [centeredId, setCenteredId] = useState<number | null>(null);
 
   useEffect(() => {

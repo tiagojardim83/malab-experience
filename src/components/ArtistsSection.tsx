@@ -61,8 +61,8 @@ export const ArtistsSection = () => {
               Artistas Representados
             </h2>
             <p className="text-lg leading-[1.5] font-light text-primary-foreground/80 max-w-3xl mx-auto whitespace-pre-line">
-              Talentos que carregam a essência da Malab Produções para&nbsp;{"\n"}
-              os&nbsp;palcos mais importantes do Brasil.
+              Talentos que carregam a essência da Malab Produções para&nbsp;os&nbsp;palcos&nbsp;mais{"\n"}
+              importantes do Brasil.
             </p>
           </div>
 

@@ -59,6 +59,37 @@ const EventsSection = () => {
   const handlePrev = () => setCenterIdx((i) => wrap(i - 1));
   const handleNext = () => setCenterIdx((i) => wrap(i + 1));
 
+  // Mobile scroll-centered card scaling
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [centeredId, setCenteredId] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!containerRef.current || window.innerWidth >= 768) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = Number(entry.target.getAttribute('data-event-id'));
+            setCenteredId(id);
+          }
+        });
+      },
+      {
+        root: containerRef.current,
+        rootMargin: '0px -45% 0px -45%',
+        threshold: 0.5,
+      },
+    );
+
+    cardRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [visible]);
+
   return (
     <section id="eventos" className="py-20 bg-primary">
       <div className="container mx-auto px-4">

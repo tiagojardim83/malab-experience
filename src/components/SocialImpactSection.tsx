@@ -120,7 +120,7 @@ export const SocialImpactSection = () => {
             <h2 className="text-[30px] leading-[1.15] font-bold mb-3 md:text-5xl md:mb-6 text-[#F5E6CC]">
               Cultura que Transforma
             </h2>
-            <p className="text-lg leading-[1.5] font-light text-[#F5E6CC]/90 max-w-3xl mx-auto whitespace-pre-line">
+            <p className="text-lg leading-[1.5] font-light text-[#F5E6CC]/90 max-w-3xl mx-auto md:whitespace-pre-line">
               Nosso compromisso vai além do entretenimento. Cada evento é uma oportunidade 
               de gerar impacto&nbsp;{"\n"}positivo na sociedade.
             </p>
@@ -136,7 +136,7 @@ export const SocialImpactSection = () => {
 
           {/* Quote */}
           <div className="text-center mt-4 animate-fade-in">
-            <blockquote className="text-lg leading-[1.5] italic text-[#F5E6CC]/90 max-w-2xl mx-auto md:text-xl whitespace-pre-line">
+            <blockquote className="text-lg leading-[1.5] italic text-[#F5E6CC]/90 max-w-2xl mx-auto md:text-xl md:whitespace-pre-line">
               "Cada evento é uma oportunidade de retribuir à comunidade que nos acolhe.&nbsp;{"\n"}
               A cultura transforma, e nós somos agentes dessa transformação."
             </blockquote>

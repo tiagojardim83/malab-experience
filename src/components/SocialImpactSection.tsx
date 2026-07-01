@@ -136,9 +136,8 @@ export const SocialImpactSection = () => {
 
           {/* Quote */}
           <div className="text-center mt-4 animate-fade-in">
-            <blockquote className="text-lg leading-[1.5] italic text-[#F5E6CC]/90 max-w-2xl mx-auto md:text-xl md:whitespace-pre-line">
-              "Cada evento é uma oportunidade de retribuir à comunidade que nos acolhe.{"\n"}
-              A cultura transforma, e nós somos agentes dessa transformação."
+            <blockquote className="text-lg leading-[1.5] italic text-[#F5E6CC]/90 max-w-2xl mx-auto md:text-xl">
+              "Cada evento é uma oportunidade de retribuir à comunidade que nos acolhe. A cultura transforma, e nós somos agentes dessa transformação."
             </blockquote>
             <cite className="block mt-4 text-[#F5E6CC] font-semibold">
               — Aluizer Malab, Fundador

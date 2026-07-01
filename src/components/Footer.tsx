@@ -25,8 +25,8 @@ export const Footer = () => {
           </div>
 
           <div className="lg:justify-self-end lg:pt-24">
-            <button
-              onClick={() => scrollToSection('contact')}
+            <a
+              href="mailto:aluizer@malab.com.br"
               className="group inline-flex items-center gap-4 text-secondary border-b border-secondary/40 pb-2 hover:border-secondary transition-colors"
             >
               <span className="text-sm md:text-base uppercase tracking-[0.25em] font-semibold">
@@ -36,7 +36,7 @@ export const Footer = () => {
                 size={18}
                 className="transition-transform group-hover:translate-x-1"
               />
-            </button>
+            </a>
           </div>
         </div>
 
@@ -87,10 +87,10 @@ export const Footer = () => {
             <ul className="space-y-1.5 text-sm">
               <li>
                 <a
-                  href="mailto:Malab@malab.com.br"
+                  href="mailto:aluizer@malab.com.br"
                   className="text-background/80 hover:text-secondary transition-colors"
                 >
-                  Malab@malab.com.br
+                  aluizer@malab.com.br
                 </a>
               </li>
             </ul>

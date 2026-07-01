@@ -21,7 +21,7 @@ export const ContactSection = () => {
     const body = encodeURIComponent(
       `Nome: ${formData.name}\nE-mail: ${formData.email}\n\n${formData.message}`
     );
-    window.location.href = `mailto:Malab@malab.com.br?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:aluizer@malab.com.br?subject=${subject}&body=${body}`;
 
     toast({
       title: "Abrindo seu e-mail...",

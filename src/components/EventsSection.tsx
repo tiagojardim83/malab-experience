@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Clock, Ticket, ChevronRight, ChevronLeft } from 'lucide-react';
+import { MapPin, Clock, Ticket, ChevronRight, ChevronLeft, Check } from 'lucide-react';
 import { Button } from './ui/button';
 import mariaRita from '@/assets/event-maria-rita.jpg.asset.json';
 import viradaLiberdade from '@/assets/event-virada-liberdade.png.asset.json';
@@ -36,6 +36,7 @@ const EventsSection = () => {
       description: '31.12 · 18h · Praça da Liberdade · BH/MG. Virada da Liberdade com Biquíni, Juarez Moreira, Lagum, Aline Calixto e Pé de Sonho.',
       image: viradaLiberdade.url,
       link: 'https://www.sympla.com.br',
+      done: true,
     },
   ];
 
@@ -105,6 +106,16 @@ const EventsSection = () => {
                   }`}
                 >
                   <div className="relative overflow-hidden aspect-[3/4] bg-muted">
+                    {event.done && (
+                      <div className="absolute top-0 left-0 z-20 w-72 -translate-x-1/4 translate-y-6 -rotate-45 bg-gradient-to-r from-black/95 to-black/80 backdrop-blur-sm py-2.5 shadow-xl">
+                        <div className="flex items-center justify-center gap-2">
+                          <Check className="h-4 w-4 text-white" strokeWidth={3} />
+                          <span className="text-xs font-bold tracking-[0.2em] uppercase text-white">
+                            Realizado
+                          </span>
+                        </div>
+                      </div>
+                    )}
                     <img
                       src={event.image}
                       alt={event.title}

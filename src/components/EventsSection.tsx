@@ -16,6 +16,7 @@ const EventsSection = () => {
       description: '18.09 · BeFly Hall · BH. Maria Rita apresenta o show Redescobrir Vol. 2, uma celebração ao legado da MPB.',
       image: mariaRita.url,
       link: 'https://bileto.sympla.com.br/event/121295/d/388100',
+      ctaLabel: 'Compre agora',
     },
     {
       id: 2,
@@ -26,6 +27,7 @@ const EventsSection = () => {
       description: '04.SET · 21h30 · Arena Hall · BH/MG. Uma noite única com dois ícones do samba brasileiro.',
       image: martinhoMartnalia.url,
       link: 'https://bileto.sympla.com.br/event/120119/d/382999',
+      ctaLabel: 'Compre agora',
     },
     {
       id: 3,
@@ -35,7 +37,7 @@ const EventsSection = () => {
       price: 'Gratuito',
       description: '31.12 · 18h · Praça da Liberdade · BH/MG. Virada da Liberdade com Biquíni, Juarez Moreira, Lagum, Aline Calixto e Pé de Sonho.',
       image: viradaLiberdade.url,
-      link: 'https://www.sympla.com.br',
+      link: 'https://www.instagram.com/viradadaliberdadeoficial/',
       done: true,
     },
   ];

@@ -12,14 +12,14 @@ export const Footer = () => {
 
   return (
     <footer className="relative bg-primary text-background overflow-hidden">
-      <div className="container mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-8">
+      <div className="container mx-auto px-6 md:px-10 pt-14 md:pt-28 pb-8">
         {/* Top: Headline + CTA */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-start mb-20 md:mb-28">
           <div>
             <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-background/60 mb-6">
               Vamos criar algo memorável.
             </p>
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-background">
+            <h2 className="text-[30px] leading-[1.15] font-bold md:text-7xl lg:text-8xl md:leading-[0.95] tracking-tight text-background">
               Pronto para subir <br /> ao palco?
             </h2>
           </div>

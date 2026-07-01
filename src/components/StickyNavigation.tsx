@@ -6,6 +6,7 @@ import malabType from '@/assets/malab-type.png.asset.json';
 
 const sections = [
   { id: 'hero', label: 'Home' },
+  { id: 'artistas', label: 'Artista' },
   { id: 'about', label: 'Quem Somos' },
   { id: 'impact', label: 'Impacto' },
   { id: 'eventos', label: 'Ingressos' },

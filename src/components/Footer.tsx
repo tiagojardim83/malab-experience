@@ -60,6 +60,7 @@ export const Footer = () => {
             <ul className="space-y-1.5 text-sm">
               {[
                 { id: 'hero', label: 'Home' },
+                { id: 'artistas', label: 'Artista' },
                 { id: 'about', label: 'Quem Somos' },
                 { id: 'impact', label: 'Impacto' },
                 { id: 'eventos', label: 'Ingressos' },

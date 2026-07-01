@@ -2,7 +2,7 @@ import heroVideo from '@/assets/malab-hero.mp4.asset.json';
 
 export const VideoShowcaseSection = () => {
   return (
-    <section className="relative bg-background py-24">
+    <section className="relative bg-background py-[4.5rem] md:py-24">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto rounded-sm overflow-hidden shadow-2xl ring-1 ring-border/40">
           <video

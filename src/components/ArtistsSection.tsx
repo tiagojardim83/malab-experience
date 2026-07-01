@@ -97,7 +97,7 @@ export const ArtistsSection = () => {
                   <div className="grid grid-cols-2 gap-3 mt-2">
                     <Button
                       variant="hero"
-                      className="w-full"
+                      className="w-full text-base"
                       asChild
                     >
                       <a
@@ -111,7 +111,7 @@ export const ArtistsSection = () => {
                     </Button>
                     <Button
                       variant="hero"
-                      className="w-full"
+                      className="w-full text-base"
                       asChild
                     >
                       <a

@@ -140,7 +140,7 @@ export const StickyNavigation = () => {
                   key={section.id}
                   variant={activeSection === section.id ? "default" : "ghost"}
                   onClick={() => scrollToSection(section.id)}
-                  className="justify-start text-left w-full"
+                  className="justify-start text-left w-full text-base"
                 >
                   {section.label}
                 </Button>
@@ -148,7 +148,7 @@ export const StickyNavigation = () => {
               <Button
                 variant="hero"
                 onClick={() => window.location.href = 'mailto:aluizer@malab.com.br'}
-                className="w-full mt-4"
+                className="w-full mt-4 text-base"
               >
                 Fale Conosco
               </Button>

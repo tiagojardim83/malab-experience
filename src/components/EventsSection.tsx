@@ -126,7 +126,10 @@ const EventsSection = () => {
           </button>
 
           {/* Cards */}
-          <div className="flex md:grid md:grid-cols-3 gap-6 lg:gap-8 items-start px-10 md:px-0 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory scroll-smooth">
+          <div
+            ref={containerRef}
+            className="flex md:grid md:grid-cols-3 gap-6 lg:gap-8 items-start px-10 md:px-0 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory scroll-smooth"
+          >
             {visible.map((event, idx) => {
               const featured = idx === 1;
               return (

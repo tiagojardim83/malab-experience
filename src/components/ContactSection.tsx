@@ -40,15 +40,15 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-[#F25C2A]">
+    <section id="contact" className="py-14 md:py-20 bg-[#F25C2A]">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-background">
+          <div className="text-center mb-10 md:mb-16 animate-fade-in">
+            <h2 className="text-[30px] leading-[1.15] font-bold mb-3 md:text-5xl md:mb-6 text-background">
               Seu próximo show <br /> merece o calor de Minas
             </h2>
-            <p className="text-xl font-light text-background/90 max-w-3xl mx-auto">
+            <p className="text-lg leading-[1.5] font-light text-background/90 max-w-3xl mx-auto">
               Seja você artista, agente ou marca, a Malab tem um palco pronto para 
               se transformar em história. Compartilhe sua ideia: nós cuidamos de acender as luzes.
             </p>

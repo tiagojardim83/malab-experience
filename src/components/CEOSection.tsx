@@ -56,7 +56,7 @@ export const CEOSection = () => {
               </div>
 
               <div className="mt-auto pt-6 pl-1">
-                <h3 className="text-2xl font-bold text-foreground">Aluizer Malab</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-foreground">Aluizer Malab</h3>
                 <p className="text-foreground/80 font-semibold tracking-wide uppercase text-xs mt-1">
                   CEO & Fundador
                 </p>

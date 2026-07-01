@@ -165,14 +165,14 @@ const EventsSection = () => {
                   </div>
 
                   <div className="p-4 md:p-5 flex flex-col flex-1">
-                    <h3 className="font-bold text-foreground mb-3 text-base leading-[1.3] md:text-lg">
+                    <h3 className="font-bold text-foreground mb-3 text-base leading-[1.3] md:text-lg line-clamp-2 min-h-[2.6rem] md:min-h-[3rem]">
                       {event.title}
                     </h3>
 
-                    <p className="hidden md:block text-sm leading-[1.5] text-muted-foreground mb-4 flex-1">
+                    <p className="hidden md:block text-sm leading-[1.5] text-muted-foreground mb-4 flex-1 line-clamp-3">
                       {event.description}
                     </p>
-                    <ul className="space-y-2 mb-5 text-muted-foreground md:hidden">
+                    <ul className="space-y-2 mb-5 text-muted-foreground md:hidden flex-1">
                       <li className="flex items-center gap-2">
                         <MapPin className="h-3.5 w-3.5 text-primary shrink-0" />
                         <span className="text-xs">{event.location}</span>

@@ -50,8 +50,9 @@ export const HeroSection = () => {
           </h1>
           
           <p className="text-lg leading-[1.5] font-light mb-8 md:text-xl md:mb-12 opacity-80 max-w-2xl mx-auto whitespace-pre-line">
-            Há quase três décadas, conectamos artistas, plateias e&nbsp;{"\n"}
-            cidades inteiras a experiências inesquecíveis.
+            Há quase três décadas, conectamos&nbsp;{"\n"}
+            artistas, plateias e&nbsp;cidades inteiras&nbsp;{"\n"}
+            a&nbsp;experiências inesquecíveis.
           </p>
           
           <div className="flex justify-center items-center mb-8 md:mb-16">

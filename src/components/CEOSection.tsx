@@ -4,11 +4,11 @@ import octopusMark from "@/assets/malab-octopus.png.asset.json";
 
 export const CEOSection = () => {
   return (
-    <section id="ceo" className="relative py-24 bg-secondary text-foreground overflow-hidden">
+    <section id="ceo" className="relative py-[4.5rem] md:py-24 bg-secondary text-foreground overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="mb-16 flex items-start justify-between gap-8 animate-fade-in">
+          <div className="mb-10 md:mb-16 flex items-start justify-between gap-8 animate-fade-in">
             <div className="max-w-2xl">
               <div className="flex items-center gap-4 mb-4">
                 <span className="h-[2px] w-12 bg-foreground" />
@@ -16,7 +16,7 @@ export const CEOSection = () => {
                   Visão & Liderança
                 </span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-bold leading-[1.05] text-foreground">
+              <h2 className="text-[30px] leading-[1.15] font-bold mb-3 md:text-6xl md:leading-[1.05] md:mb-4 text-foreground">
                 A mente por trás <br />
                 <span className="italic font-light text-foreground">da Malab.</span>
               </h2>

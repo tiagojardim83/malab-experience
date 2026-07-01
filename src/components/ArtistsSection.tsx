@@ -52,7 +52,7 @@ const buildWhatsAppUrl = (artistName: string) => {
 
 export const ArtistsSection = () => {
   return (
-    <section id="artistas" className="py-20 bg-hero-gradient">
+    <section id="artistas" className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}

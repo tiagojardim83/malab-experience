@@ -225,7 +225,7 @@ const EventsSection = () => {
               placeholder="Seu melhor e-mail"
               className="flex-1 h-12 px-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
             />
-            <Button className="h-12 px-8 shrink-0">Cadastrar</Button>
+            <Button className="h-12 px-8 shrink-0 text-base">Cadastrar</Button>
           </div>
         </div>
       </div>

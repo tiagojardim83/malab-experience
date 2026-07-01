@@ -205,13 +205,14 @@ const RevealDifferential = ({ item, index }: RevealDifferentialProps) => {
           : 'opacity-0 translate-y-10 blur-[6px]',
       ].join(' ')}
     >
-      <div className="relative flex items-stretch rounded-2xl border border-background/60 overflow-hidden transition-transform duration-500 group-hover:scale-[1.01]">
-        <div className="flex items-center px-6 md:px-10 py-6 md:py-8 min-w-[200px] md:min-w-[300px]">
+      <div className="relative flex flex-col md:flex-row items-stretch rounded-2xl border border-background/60 overflow-hidden transition-transform duration-500 group-hover:scale-[1.01]">
+        <div className="flex items-center px-6 md:px-10 py-6 md:py-8 md:min-w-[300px]">
           <h4 className="text-lg leading-[1.2] md:text-2xl font-bold text-background">
             {item.title}
           </h4>
         </div>
-        <div className="w-px bg-background/30 my-5" />
+        <div className="hidden md:block w-px bg-background/30 my-5" />
+        <div className="md:hidden h-px bg-background/30 mx-6" />
         <div className="flex items-center px-6 md:px-10 py-6 md:py-8 flex-1">
           <p className="text-base leading-[1.5] md:text-xl font-light text-background tracking-tight">
             {item.description}

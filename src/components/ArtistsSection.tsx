@@ -52,15 +52,15 @@ const buildWhatsAppUrl = (artistName: string) => {
 
 export const ArtistsSection = () => {
   return (
-    <section id="artistas" className="py-20 bg-black">
+    <section id="artistas" className="py-14 md:py-20 bg-black">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary-foreground">
+          <div className="text-center mb-10 md:mb-16 animate-fade-in">
+            <h2 className="text-[30px] leading-[1.15] font-bold mb-3 md:text-5xl md:mb-6 text-primary-foreground">
               Artistas Representados
             </h2>
-            <p className="text-xl font-light text-primary-foreground/80 max-w-3xl mx-auto whitespace-pre-line">
+            <p className="text-lg leading-[1.5] font-light text-primary-foreground/80 max-w-3xl mx-auto whitespace-pre-line">
               Talentos que carregam a essência da Malab Produções para&nbsp;{"\n"}
               os&nbsp;palcos mais importantes do Brasil.
             </p>
@@ -88,10 +88,10 @@ export const ArtistsSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80" />
                 </div>
                 <CardContent className="p-6 flex flex-col flex-1 gap-4">
-                  <h3 className="text-2xl font-bold text-primary-foreground">
+                  <h3 className="text-xl md:text-2xl font-bold text-primary-foreground">
                     {artist.name}
                   </h3>
-                  <p className="text-primary-foreground/80 flex-1">
+                  <p className="text-base leading-[1.6] text-primary-foreground/80 flex-1">
                     {artist.description}
                   </p>
                   <div className="grid grid-cols-2 gap-3 mt-2">

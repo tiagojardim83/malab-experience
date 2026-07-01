@@ -100,7 +100,7 @@ export const CEOSection = () => {
                     <p className="text-[10px] tracking-[0.2em] uppercase text-foreground/70 font-semibold">
                       {h.k}
                     </p>
-                    <p className="text-sm md:text-base text-foreground mt-2 leading-snug">
+                    <p className="text-base md:text-base text-foreground mt-2 leading-snug">
                       {h.v}
                     </p>
                   </div>

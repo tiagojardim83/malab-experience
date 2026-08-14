@@ -42,7 +42,7 @@ export const HeroSection = () => {
             <button
               type="button"
               onClick={scrollToEvents}
-              className="mt-7 inline-flex items-center gap-2 bg-secondary px-5 py-4 text-[9px] font-bold uppercase tracking-[0.14em] text-background transition-colors hover:bg-background hover:text-foreground"
+              className="site-cta mt-7 bg-secondary text-background hover:bg-background hover:text-foreground"
             >
               Próximos eventos
               <ArrowUpRight className="h-4 w-4" />

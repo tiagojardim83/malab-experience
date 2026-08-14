@@ -124,7 +124,7 @@ export const EventsSection = () => {
                   <li className="flex items-center gap-2"><Clock className="h-4 w-4 text-secondary" /><span data-motion-number>{event.time}</span></li>
                   <li className="flex items-center gap-2"><Ticket className="h-4 w-4 text-secondary" />{event.price}</li>
                 </ul>
-                <a href={event.link} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex w-fit items-center gap-2 bg-primary px-5 py-4 text-[9px] font-bold uppercase tracking-[0.14em] text-background transition-colors hover:bg-secondary">
+                <a href={event.link} target="_blank" rel="noopener noreferrer" className="site-cta mt-6 bg-primary text-background hover:bg-secondary">
                   {event.ctaLabel}<ArrowUpRight className="h-4 w-4" />
                 </a>
               </div>
@@ -142,9 +142,9 @@ export const EventsSection = () => {
           </div>
           <form className="lg:col-span-5" onSubmit={(event) => event.preventDefault()}>
             <label htmlFor="newsletter-email" className="text-[9px] font-bold uppercase tracking-[0.18em]">Seu melhor e-mail</label>
-            <div className="mt-3 flex border-b border-background">
-              <input id="newsletter-email" type="email" placeholder="voce@email.com" className="h-14 min-w-0 flex-1 bg-transparent px-0 text-sm text-background outline-none placeholder:text-background/45" />
-              <button type="submit" className="inline-flex h-14 items-center gap-2 px-3 text-[9px] font-bold uppercase tracking-[0.14em] transition-colors hover:bg-background hover:text-secondary">Cadastrar <ArrowUpRight className="h-4 w-4" /></button>
+            <div className="mt-3 flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:gap-0">
+              <input id="newsletter-email" type="email" placeholder="voce@email.com" className="h-14 w-full min-w-0 border-b border-background bg-transparent px-0 text-sm text-background outline-none placeholder:text-background/45 sm:flex-1" />
+              <button type="submit" className="site-cta bg-primary text-background hover:bg-background hover:text-secondary">Cadastrar <ArrowUpRight className="h-4 w-4" /></button>
             </div>
           </form>
         </div>

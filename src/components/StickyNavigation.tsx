@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowUpRight, Menu, X } from 'lucide-react';
+import { ArrowUpRight, Instagram, Linkedin } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import malabType from '@/assets/malab-type.png.asset.json';
 
@@ -41,6 +41,28 @@ export const StickyNavigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsMobileMenuOpen(false);
+    };
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setIsMobileMenuOpen(false);
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isMobileMenuOpen]);
+
   const scrollToSection = (sectionId: string) => {
     const scroll = () => {
       document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -56,18 +78,20 @@ export const StickyNavigation = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const foreground = isScrolled || isMobileMenuOpen ? 'text-primary' : 'text-background';
+  const foreground = isScrolled ? 'text-primary' : 'text-background';
 
   return (
     <nav
       aria-label="Navegação principal"
       className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-500 ${
-        isScrolled || isMobileMenuOpen
-          ? 'border-primary/15 bg-background/95 backdrop-blur-md'
-          : 'border-background/20 bg-transparent'
+        isMobileMenuOpen
+          ? 'border-background/20 bg-primary'
+          : isScrolled
+            ? 'border-primary/15 bg-background/95 backdrop-blur-md'
+            : 'border-background/20 bg-transparent'
       }`}
     >
-      <div className="container flex h-20 items-center justify-between md:h-24">
+      <div className="container relative z-20 flex h-20 items-center justify-between md:h-24">
         <button
           type="button"
           onClick={() => scrollToSection('hero')}
@@ -123,31 +147,62 @@ export const StickyNavigation = () => {
           type="button"
           onClick={() => setIsMobileMenuOpen((open) => !open)}
           className={`relative z-10 inline-flex h-11 w-11 items-center justify-center border md:hidden ${
-            isScrolled || isMobileMenuOpen ? 'border-primary/30 text-primary' : 'border-background/50 text-background'
+            isMobileMenuOpen
+              ? 'border-background/40 text-background'
+              : isScrolled
+                ? 'border-primary/30 text-primary'
+                : 'border-background/50 text-background'
           }`}
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-navigation"
           aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
         >
-          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          <span aria-hidden className="relative block h-4 w-5">
+            <span className={`absolute left-0 top-1 block h-px w-5 bg-current transition-transform duration-300 ${isMobileMenuOpen ? 'translate-y-1.5 rotate-45' : ''}`} />
+            <span className={`absolute bottom-1 left-0 block h-px w-5 bg-current transition-transform duration-300 ${isMobileMenuOpen ? '-translate-y-1.5 -rotate-45' : ''}`} />
+          </span>
         </button>
       </div>
 
       {isMobileMenuOpen ? (
-        <div id="mobile-navigation" className="border-t border-primary/15 bg-background lg:hidden">
-          <div className="container py-6">
-            <div className="flex flex-col">
+        <div id="mobile-navigation" className="mobile-menu-panel fixed inset-0 z-10 bg-primary pt-20 text-background md:hidden">
+          <div className="container flex h-full min-h-0 flex-col pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-5">
+            <div className="flex items-center justify-between border-t border-background/25 py-3">
+              <p className="editorial-label text-secondary">Menu principal</p>
+              <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-background/45">Belo Horizonte · MG</p>
+            </div>
+
+            <div className="flex min-h-0 flex-1 flex-col border-t border-background/25">
               {sections.map((section, index) => (
                 <button
                   key={section.id}
                   type="button"
                   onClick={() => scrollToSection(section.id)}
-                  className="flex items-center justify-between border-b border-primary/15 py-4 text-left text-sm font-semibold uppercase tracking-[0.12em] text-primary"
+                  className="mobile-menu-item group flex min-h-0 flex-1 items-center gap-4 border-b border-background/20 py-1 text-left"
+                  style={{ animationDelay: `${80 + index * 45}ms` }}
                 >
-                  <span>{section.label}</span>
-                  <span data-motion-number data-motion-visible="true" className="font-display text-2xl font-medium text-secondary">0{index + 1}</span>
+                  <span className="w-7 shrink-0 text-[9px] font-bold tracking-[0.16em] text-secondary">0{index + 1}</span>
+                  <span className={`editorial-display flex-1 text-[clamp(1.55rem,7vw,2.15rem)] leading-none transition-colors group-hover:text-secondary ${activeSection === section.id ? 'text-secondary' : 'text-background'}`}>
+                    {section.label}
+                  </span>
+                  <ArrowUpRight className="h-5 w-5 shrink-0 text-background/30 transition-[color,transform] duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-secondary" strokeWidth={1.25} />
                 </button>
               ))}
+            </div>
+
+            <div className="grid grid-cols-[1fr_auto] items-end gap-6 border-t border-background/25 pt-4">
+              <div>
+                <p className="editorial-label text-secondary">Siga a Malab</p>
+                <div className="mt-3 flex items-center gap-5">
+                  <a href="https://www.instagram.com/malabproducoes/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.14em] text-background transition-colors hover:text-secondary">
+                    <Instagram className="h-4 w-4" /> Instagram
+                  </a>
+                  <a href="https://www.linkedin.com/in/aluizermalab/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.14em] text-background transition-colors hover:text-secondary">
+                    <Linkedin className="h-4 w-4" /> LinkedIn
+                  </a>
+                </div>
+              </div>
+              <p className="hidden font-editorial text-right text-xl italic leading-tight text-background/55 min-[390px]:block">Cultura em<br />movimento.</p>
             </div>
           </div>
         </div>

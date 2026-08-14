@@ -1,5 +1,4 @@
 import { ArrowUpRight } from 'lucide-react';
-import servicesBg from '@/assets/services-bg-singer.jpg.asset.json';
 
 const services = [
   {
@@ -38,25 +37,20 @@ const differentials = [
 export const ServicesSection = () => {
   return (
     <section id="services" className="bg-black text-background">
-      <div className="relative flex min-h-[72vh] items-end overflow-hidden">
-        <img src={servicesBg.url} alt="Cantora em apresentação produzida pela Malab" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-[center_20%]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-black/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-black/10" />
-        <div className="container relative z-10 pb-10 md:pb-16">
-          <div className="border-t border-background/35 pt-5">
-            <p className="editorial-label text-secondary">O que fazemos</p>
-            <h2 className="editorial-display mt-6 text-[clamp(1.35rem,7.2vw,8rem)] leading-[0.86]">
-              <span className="block whitespace-nowrap">Serviços de produção</span>
-              <span className="block whitespace-nowrap">cultural em MG.</span>
-            </h2>
-            <p className="mt-7 max-w-2xl text-base leading-7 text-background/75 md:text-lg">
-              Oferecemos soluções completas para eventos, shows e festivais. Da concepção à execução, transformamos ideias em experiências inesquecíveis.
-            </p>
-          </div>
+      <div className="container pt-16 md:pt-24 lg:pt-28">
+        <div className="border-t border-background/35 pt-5">
+          <p className="editorial-label text-secondary">O que fazemos</p>
+          <h2 className="editorial-display mt-6 text-[clamp(1.35rem,7.2vw,8rem)] leading-[0.86]">
+            <span className="block whitespace-nowrap">Serviços de produção</span>
+            <span className="block whitespace-nowrap">cultural em MG.</span>
+          </h2>
+          <p className="mt-7 max-w-2xl text-base leading-7 text-background/75 md:text-lg">
+            Oferecemos soluções completas para eventos, shows e festivais. Da concepção à execução, transformamos ideias em experiências inesquecíveis.
+          </p>
         </div>
       </div>
 
-      <div className="container py-16 md:py-24">
+      <div className="container pb-16 pt-12 md:pb-24 md:pt-16">
         <div className="border-t border-background/30">
           {services.map((service, index) => (
             <article key={service.title} className="group grid gap-y-8 border-b border-background/30 py-9 md:py-12 lg:grid-cols-12 lg:items-start lg:gap-x-8">
@@ -79,12 +73,6 @@ export const ServicesSection = () => {
               </ul>
             </article>
           ))}
-        </div>
-
-        <div className="mt-12 flex justify-end md:mt-16">
-          <a href="mailto:aluizer@malab.com.br" className="inline-flex items-center gap-2 bg-secondary px-6 py-4 text-[9px] font-bold uppercase tracking-[0.14em] text-background transition-colors hover:bg-background hover:text-primary">
-            Vamos conversar <ArrowUpRight className="h-4 w-4" />
-          </a>
         </div>
       </div>
     </section>

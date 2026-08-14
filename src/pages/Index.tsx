@@ -35,7 +35,6 @@ const Index = () => {
         <ArtistsSection />
         <MissionSection />
         <ParallaxDivider image={parallax2} alt="Performance ao vivo" position="center 15%" intensity={140} />
-        <VideoShowcaseSection />
         <CEOSection />
         <ParallaxDivider image={parallax4} alt="Banda em show ao vivo" position="center 40%" intensity={120} />
         <ImpactSection />
@@ -43,6 +42,7 @@ const Index = () => {
         <EventsSection />
         
         <ServicesSection />
+        <VideoShowcaseSection />
         <DifferentialsSection />
         <ParallaxDivider image={parallax3} alt="Artista no palco" position="center 12%" intensity={150} />
 

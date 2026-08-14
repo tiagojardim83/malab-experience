@@ -24,7 +24,7 @@ export const Footer = () => {
           <p className="editorial-label text-secondary lg:col-span-4">Vamos criar algo memorável</p>
           <div className="lg:col-span-8">
             <h2 className="editorial-display text-6xl leading-[0.82] md:text-8xl lg:text-[9rem]">Pronto para subir ao palco?</h2>
-            <a href="mailto:aluizer@malab.com.br" className="mt-10 inline-flex items-center gap-2 bg-secondary px-6 py-4 text-[9px] font-bold uppercase tracking-[0.14em] text-background transition-colors hover:bg-background hover:text-primary">
+            <a href="mailto:aluizer@malab.com.br" className="site-cta mt-10 bg-secondary text-background hover:bg-background hover:text-primary">
               Iniciar uma colaboração <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>

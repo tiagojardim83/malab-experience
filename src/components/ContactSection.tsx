@@ -53,8 +53,8 @@ export const ContactSection = () => {
               <textarea id="message" name="message" required value={formData.message} onChange={handleInputChange} placeholder="Descreva sua ideia, tipo de evento, data prevista, público esperado..." rows={5} className="mt-5 w-full resize-none bg-transparent p-0 text-base leading-7 text-background outline-none placeholder:text-background/45" />
             </div>
 
-            <div className="mt-8 flex justify-end">
-              <button type="submit" className="inline-flex items-center gap-2 bg-primary px-6 py-4 text-[9px] font-bold uppercase tracking-[0.14em] text-background transition-colors hover:bg-background hover:text-secondary">
+            <div className="mt-8 flex justify-start md:justify-end">
+              <button type="submit" className="site-cta bg-primary text-background hover:bg-background hover:text-secondary">
                 Enviar proposta <ArrowUpRight className="h-4 w-4" />
               </button>
             </div>

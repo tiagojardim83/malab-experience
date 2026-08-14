@@ -1,6 +1,4 @@
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Instagram, MessageCircle } from 'lucide-react';
+import { ArrowUpRight, Instagram, MessageCircle } from 'lucide-react';
 import patoFuImg from '@/assets/artist-patofu.jpg.asset.json';
 import rodrigoBorgesImg from '@/assets/artist-rodrigoborges.jpg.asset.json';
 
@@ -10,11 +8,8 @@ interface Artist {
   description: string;
   image: { url: string };
   imageAlt: string;
-  imagePosition?: string;
   instagramUrl: string;
-  whatsappNumber: string;
 }
-
 
 const WHATSAPP_NUMBER = '+553199514594';
 
@@ -22,115 +17,69 @@ const artists: Artist[] = [
   {
     id: 'pato-fu',
     name: 'Pato Fu',
-    description:
-      'Uma das bandas mais criativas do rock brasileiro, conhecida por misturar sonoridades inovadoras e performances marcantes que conquistam gerações.',
+    description: 'Uma das bandas mais criativas do rock brasileiro, conhecida por misturar sonoridades inovadoras e performances marcantes que conquistam gerações.',
     image: patoFuImg,
     imageAlt: 'Foto promocional do Pato Fu',
     instagramUrl: 'https://www.instagram.com/patofu/?hl=en',
-    whatsappNumber: WHATSAPP_NUMBER,
   },
   {
     id: 'rodrigo-borges',
     name: 'Rodrigo Borges',
-    description:
-      'Cantor, compositor e instrumentista com trajetória singular, trazendo autenticidade e energia para cada palco que pisa.',
+    description: 'Cantor, compositor e instrumentista com trajetória singular, trazendo autenticidade e energia para cada palco que pisa.',
     image: rodrigoBorgesImg,
     imageAlt: 'Foto promocional de Rodrigo Borges',
     instagramUrl: 'https://www.instagram.com/rodrigoborgesoficial/?hl=en',
-    whatsappNumber: WHATSAPP_NUMBER,
   },
-
 ];
 
-
 const buildWhatsAppUrl = (artistName: string) => {
-  const text = encodeURIComponent(
-    `Olá! Gostaria de contratar ${artistName} através da Malab Produções.`
-  );
+  const text = encodeURIComponent(`Olá! Gostaria de contratar ${artistName} através da Malab Produções.`);
   return `https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g, '')}?text=${text}`;
 };
 
 export const ArtistsSection = () => {
   return (
-    <section id="artistas" className="py-14 md:py-20 bg-black">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-10 md:mb-16 animate-fade-in">
-            <h2 className="text-[30px] leading-[1.15] font-bold mb-3 md:text-5xl md:mb-6 text-primary-foreground">
-              Artistas Representados
-            </h2>
-            <p className="text-lg leading-[1.5] font-light text-primary-foreground/80 max-w-3xl mx-auto md:whitespace-pre-line">
-              Talentos que carregam a essência da Malab Produções para&nbsp;os&nbsp;palcos&nbsp;mais{"\n"}
-              importantes do Brasil.
-            </p>
-          </div>
+    <section id="artistas" className="bg-black text-background">
+      <div className="container editorial-section">
+        <header className="mb-14 max-w-6xl border-t border-background/25 pt-5 md:mb-24">
+          <p className="editorial-label text-secondary">Casting Malab</p>
+          <h2 className="editorial-display mt-6 text-5xl leading-[0.9] md:text-7xl lg:text-8xl">Artistas representados.</h2>
+          <p className="mt-6 max-w-2xl text-base leading-7 text-background/65 md:text-lg">
+            Talentos que carregam a essência da Malab Produções para os palcos mais importantes do Brasil.
+          </p>
+        </header>
 
-          {/* Artists Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {artists.map((artist, index) => (
-              <Card
-                key={artist.id}
-                className="group overflow-hidden flex flex-col h-full animate-slide-up bg-primary-foreground/5 backdrop-blur-sm border border-primary-foreground/20 hover:border-primary-foreground/40 transition-all duration-300"
-                style={{ animationDelay: `${index * 0.15}s` }}
-              >
-                <div className="relative overflow-hidden aspect-[4/3]">
-                  <img
-                    src={artist.image.url}
-                    alt={artist.imageAlt}
-                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                    loading="lazy"
-                    style={{
-                      objectPosition: artist.imagePosition ?? 'center center',
-                    }}
-                  />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80" />
+        <div className="space-y-20 md:space-y-32">
+          {artists.map((artist, index) => (
+            <article key={artist.id} className="grid items-end gap-8 lg:grid-cols-12 lg:gap-12">
+              <div className={`${index % 2 === 1 ? 'lg:order-2' : ''} lg:col-span-8`}>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] md:aspect-[16/10]">
+                  <img src={artist.image.url} alt={artist.imageAlt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.02]" />
+                  <span className="absolute left-0 top-0 bg-secondary px-4 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-background">
+                    Artista <span data-motion-number>0{index + 1}</span>
+                  </span>
                 </div>
-                <CardContent className="p-6 flex flex-col flex-1 gap-4">
-                  <h3 className="text-xl md:text-2xl font-bold text-primary-foreground">
-                    {artist.name}
-                  </h3>
-                  <p className="text-base leading-[1.6] text-primary-foreground/80 flex-1">
-                    {artist.description}
-                  </p>
-                  <div className="grid grid-cols-2 gap-3 mt-2">
-                    <Button
-                      variant="hero"
-                      className="w-full text-base"
-                      asChild
-                    >
-                      <a
-                        href={buildWhatsAppUrl(artist.name)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <MessageCircle className="w-4 h-4 mr-2" />
-                        Contratar
-                      </a>
-                    </Button>
-                    <Button
-                      variant="hero"
-                      className="w-full text-base"
-                      asChild
-                    >
-                      <a
-                        href={artist.instagramUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Instagram className="w-4 h-4 mr-2" />
-                        Instagram
-                      </a>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+              </div>
+
+              <div className={`${index % 2 === 1 ? 'lg:order-1 lg:text-right' : ''} lg:col-span-4 lg:pb-4`}>
+                <h3 className="editorial-display text-5xl italic text-secondary md:text-7xl">{artist.name}</h3>
+                <p className={`mt-6 text-sm leading-7 text-background/70 md:text-base ${index % 2 === 1 ? 'lg:ml-auto' : ''} max-w-md`}>
+                  {artist.description}
+                </p>
+                <div className={`mt-8 flex flex-wrap gap-x-7 gap-y-4 ${index % 2 === 1 ? 'lg:justify-end' : ''}`}>
+                  <a href={buildWhatsAppUrl(artist.name)} target="_blank" rel="noopener noreferrer" className="editorial-link text-background hover:text-secondary">
+                    <MessageCircle className="h-4 w-4" /> Contratar
+                  </a>
+                  <a href={artist.instagramUrl} target="_blank" rel="noopener noreferrer" className="editorial-link text-background hover:text-secondary">
+                    <Instagram className="h-4 w-4" /> Instagram
+                  </a>
+                </div>
+                <ArrowUpRight className={`mt-10 h-10 w-10 text-secondary ${index % 2 === 1 ? 'lg:ml-auto' : ''}`} strokeWidth={1} />
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
   );
 };
-

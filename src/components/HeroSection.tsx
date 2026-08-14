@@ -1,103 +1,65 @@
-import { Button } from '@/components/ui/button';
+import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import heroConcert from '@/assets/hero-concert.jpg';
 import heroVideo from '@/assets/malab-hero.mp4.asset.json';
-import octo1 from '@/assets/malab-octopus-01.png.asset.json';
-import octo2 from '@/assets/malab-octopus.png.asset.json';
-import octo3 from '@/assets/malab-octopus-03.png.asset.json';
-import octo4 from '@/assets/malab-octopus-04.png.asset.json';
-
-const octoFrames = [octo1, octo2, octo3, octo4, octo3, octo2];
-
-
 
 export const HeroSection = () => {
   const scrollToEvents = () => {
-    const element = document.getElementById('eventos');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    document.getElementById('eventos')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const scrollToAbout = () => {
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Video with Overlay */}
-      <div className="absolute inset-0 z-0 bg-black">
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-          className="w-full h-full object-cover"
-        >
+    <section id="hero" className="relative min-h-[100svh] overflow-hidden bg-black text-background">
+      <div className="absolute inset-0">
+        <video autoPlay muted loop playsInline poster={heroConcert} className="h-full w-full object-cover">
           <source src={heroVideo.url} type="video/mp4" />
-          {/* Fallback image */}
-          <img 
-            src={heroConcert} 
-            alt="Palco iluminado da Malab Produções" 
-            className="w-full h-full object-cover"
-          />
         </video>
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.84)_0%,rgba(0,0,0,0.38)_52%,rgba(0,0,0,0.12)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.04)_45%,rgba(0,0,0,0.82)_100%)]" />
       </div>
 
-      
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center text-background">
-        <div className="max-w-4xl mx-auto animate-fade-in">
-          <h1 className="text-[36px] leading-[1.1] font-bold mb-4 md:text-7xl md:leading-tight md:mb-6 whitespace-pre-line md:whitespace-normal">
-            O Palco onde&nbsp;
-            <span className="text-secondary">Minas</span> se Encontra com o <span className="text-secondary">Mundo</span>
-          </h1>
-          
-          <p className="text-lg leading-[1.5] font-light mb-8 md:text-xl md:mb-12 opacity-80 max-w-2xl mx-auto md:whitespace-pre-line">
-            Há quase três décadas, conectamos&nbsp;artistas, plateias e&nbsp;cidades inteiras&nbsp;{"\n"}
-            a&nbsp;experiências inesquecíveis.
-          </p>
-          
-          <div className="flex justify-center items-center mb-8 md:mb-16">
-            <Button 
-              variant="hero" 
-              size="lg" 
-              className="text-base md:text-lg px-6 py-5 md:px-8 md:py-6"
-              onClick={scrollToEvents}
-            >
-              Próximos Eventos
-            </Button>
+      <div className="container relative z-10 flex min-h-[100svh] flex-col justify-end pb-8 pt-32 md:pb-12 md:pt-40">
+        <div className="mb-auto flex items-center justify-between border-t border-background/35 pt-4 text-[10px] font-bold uppercase tracking-[0.22em] text-background/75 md:text-xs">
+          <span>Produção cultural · desde <span data-motion-number>1994</span></span>
+          <span className="hidden md:block">Belo Horizonte · Minas Gerais</span>
+        </div>
+
+        <div className="grid items-end gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-9">
+            <p className="editorial-label mb-6 text-secondary">Malab Produções</p>
+            <h1 className="editorial-display max-w-6xl text-[clamp(3.65rem,9vw,9.5rem)] leading-[0.78] text-background">
+              O palco onde <span className="italic text-secondary">Minas</span> encontra o mundo.
+            </h1>
           </div>
 
-          <div className="animate-slide-up flex justify-center">
+          <div className="flex flex-col items-start border-l border-background/35 pl-6 lg:col-span-3 lg:mb-2">
+            <p className="max-w-sm text-sm leading-relaxed text-background/80 md:text-base">
+              Há quase três décadas, conectamos artistas, plateias e cidades inteiras a experiências inesquecíveis.
+            </p>
             <button
+              type="button"
               onClick={scrollToEvents}
-              aria-label="Role para a próxima seção"
-              className="animate-float-soft opacity-90 hover:opacity-100 transition-opacity duration-300"
+              className="mt-7 inline-flex items-center gap-2 bg-secondary px-5 py-4 text-[9px] font-bold uppercase tracking-[0.14em] text-background transition-colors hover:bg-background hover:text-foreground"
             >
-              <span className="relative block w-12 h-12 md:w-16 md:h-16 mx-auto">
-                {octoFrames.map((frame, i) => (
-                  <span
-                    key={i}
-                    aria-hidden
-                    className="absolute inset-0 bg-secondary animate-octo-frame opacity-0"
-                    style={{
-                      WebkitMaskImage: `url(${frame.url})`,
-                      maskImage: `url(${frame.url})`,
-                      WebkitMaskRepeat: 'no-repeat',
-                      maskRepeat: 'no-repeat',
-                      WebkitMaskSize: 'contain',
-                      maskSize: 'contain',
-                      WebkitMaskPosition: 'center',
-                      maskPosition: 'center',
-                      animationDelay: `${(i * 2.4) / octoFrames.length}s`,
-                    }}
-                  />
-                ))}
-              </span>
+              Próximos eventos
+              <ArrowUpRight className="h-4 w-4" />
             </button>
           </div>
+        </div>
 
-          
-
-
-
+        <div className="mt-10 flex items-end justify-between border-t border-background/35 pt-5 md:mt-14">
+          <button
+            type="button"
+            onClick={scrollToAbout}
+            className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.22em] text-background/75 transition-colors hover:text-secondary"
+          >
+            Descubra a Malab
+            <ArrowDown className="h-4 w-4" />
+          </button>
+          <span className="font-editorial text-2xl italic text-background/70 md:text-3xl">Cultura em movimento.</span>
         </div>
       </div>
     </section>

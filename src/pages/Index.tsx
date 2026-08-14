@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
 import { SEOHelmet } from '@/components/SEOHelmet';
 import { StickyNavigation } from '@/components/StickyNavigation';
+import { ViewportMotion } from '@/components/ViewportMotion';
 import { HeroSection } from '@/components/HeroSection';
 import { ArtistsSection } from '@/components/ArtistsSection';
 import { AboutSection } from '@/components/AboutSection';
@@ -24,40 +24,11 @@ import parallax4 from '@/assets/parallax-band-trio.jpg.asset.json';
 import parallax5 from '@/assets/parallax-12479621763.jpg.asset.json';
 
 const Index = () => {
-  useEffect(() => {
-    const sections = Array.from(document.querySelectorAll<HTMLElement>('main section, #root section'));
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return;
-
-    sections.forEach((el) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(24px)';
-      el.style.transition = 'opacity 900ms cubic-bezier(0.22, 1, 0.36, 1), transform 900ms cubic-bezier(0.22, 1, 0.36, 1)';
-      el.style.willChange = 'opacity, transform';
-    });
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const el = entry.target as HTMLElement;
-            el.style.opacity = '1';
-            el.style.transform = 'none';
-            io.unobserve(el);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
-    );
-
-    sections.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, []);
-
   return (
     <>
       <SEOHelmet />
       <div className="min-h-screen bg-black">
+        <ViewportMotion />
         <StickyNavigation />
         <HeroSection />
         <AboutSection />

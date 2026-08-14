@@ -7,7 +7,6 @@ import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
-import { WigglyCursor } from "@/components/WigglyCursor";
 
 const queryClient = new QueryClient();
 
@@ -16,7 +15,6 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <WigglyCursor />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

@@ -24,27 +24,19 @@ export const BrandsMarquee = () => {
   const loop = [...brands, ...brands];
 
   return (
-    <section className="py-12 bg-primary text-primary-foreground overflow-hidden border-y border-secondary/30">
-      <div className="container mx-auto px-4 mb-16 md:mb-20">
-        <p className="text-center text-sm md:text-base uppercase tracking-[0.3em] text-secondary font-semibold md:whitespace-pre-line">
-          MARCAS QUE JÁ&nbsp;{"\n"}CONFIARAM NA MALAB
-        </p>
+    <section className="overflow-hidden border-y border-primary/25 bg-background py-14 text-primary md:py-20">
+      <div className="container mb-12 max-w-6xl border-t border-primary/30 pt-5 md:mb-16">
+        <p className="editorial-label text-secondary">Parcerias</p>
+        <h2 className="editorial-display mt-6 text-4xl leading-none md:text-6xl">Marcas que já confiaram na Malab.</h2>
       </div>
 
-      <div className="relative">
-        <div className="flex items-center gap-16 animate-marquee whitespace-nowrap">
-          {loop.map((brand, i) => (
-            <div key={i} className="flex items-center gap-16 shrink-0">
-              <img
-                src={brand.src}
-                alt={brand.name}
-                loading="lazy"
-                className="h-8 md:h-10 w-auto object-contain shrink-0"
-              />
-              <span className="text-secondary text-2xl">✦</span>
-            </div>
-          ))}
-        </div>
+      <div className="flex w-max animate-marquee items-center">
+        {loop.map((brand, index) => (
+          <div key={`${brand.name}-${index}`} className="flex shrink-0 items-center gap-10 px-8 md:gap-16 md:px-12">
+            <img src={brand.src} alt={brand.name} loading="lazy" className="h-10 w-auto max-w-48 object-contain opacity-75 brightness-0 transition-opacity hover:opacity-100 md:h-14 md:max-w-60" />
+            <span aria-hidden className="font-display text-4xl font-black text-black">×</span>
+          </div>
+        ))}
       </div>
     </section>
   );

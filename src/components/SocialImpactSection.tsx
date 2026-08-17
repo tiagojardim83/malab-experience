@@ -1,5 +1,6 @@
 import { GraduationCap, Leaf, Ticket } from 'lucide-react';
 import { CounterAnimation } from './CounterAnimation';
+import malabOctopus from '@/assets/malab-octopus-01.png.asset.json';
 
 const impactAreas = [
   {
@@ -62,12 +63,19 @@ export const SocialImpactSection = () => {
           })}
         </div>
 
-        <blockquote className="ml-auto mt-14 max-w-4xl border-l-2 border-primary pl-6 md:mt-20 md:pl-8">
-          <p className="editorial-quote text-2xl italic leading-tight md:text-4xl">
-            “Cada evento é uma oportunidade de retribuir à comunidade que nos acolhe. A cultura transforma, e nós somos agentes dessa transformação.”
-          </p>
-          <cite className="mt-5 block text-[9px] font-bold not-italic uppercase tracking-[0.18em] text-background/65">— Aluizer Malab, Fundador</cite>
-        </blockquote>
+        <div className="mt-14 flex items-center justify-between gap-8 md:mt-20">
+          <img
+            src={malabOctopus.url}
+            alt="Polvo, símbolo da Malab"
+            className="h-20 w-auto shrink-0 opacity-90 brightness-0 invert md:h-32 lg:h-40"
+          />
+          <blockquote className="ml-auto max-w-4xl border-l-2 border-primary pl-6 md:pl-8">
+            <p className="editorial-quote text-2xl italic leading-tight md:text-4xl">
+              “Cada evento é uma oportunidade de retribuir à comunidade que nos acolhe. A cultura transforma, e nós somos agentes dessa transformação.”
+            </p>
+            <cite className="mt-5 block text-[9px] font-bold not-italic uppercase tracking-[0.18em] text-background/65">— Aluizer Malab, Fundador</cite>
+          </blockquote>
+        </div>
       </div>
     </section>
   );

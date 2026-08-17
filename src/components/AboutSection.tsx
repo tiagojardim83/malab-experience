@@ -74,9 +74,14 @@ export const AboutSection = () => {
 
           <div className="flex flex-col justify-between lg:col-span-5 lg:py-8">
             <div>
-              <div data-motion-number className="mb-12 font-display text-[9rem] font-medium leading-[0.65] text-secondary md:text-[13rem]">30</div>
+              <img
+                data-motion-number
+                src="/Selo_Malab.png"
+                alt="Selo Malab · Est. 1994"
+                className="mb-12 h-32 w-auto brightness-0 md:h-44"
+              />
               <p className="editorial-quote mb-8 text-3xl italic leading-tight text-primary md:text-4xl">
-                <span data-motion-number>30</span> anos transformando Minas Gerais no epicentro cultural do Brasil.
+                <span data-motion-number>32</span> anos transformando Minas Gerais no epicentro cultural do Brasil.
               </p>
               <div className="space-y-6 border-t border-primary/25 pt-7 text-base leading-7 text-primary/75 md:text-lg md:leading-8">
                 <p>

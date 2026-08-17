@@ -1,6 +1,7 @@
 import { SEOHelmet } from '@/components/SEOHelmet';
 import { StickyNavigation } from '@/components/StickyNavigation';
 import { ViewportMotion } from '@/components/ViewportMotion';
+import { IntroReveal } from '@/components/IntroReveal';
 import { HeroSection } from '@/components/HeroSection';
 import { ArtistsSection } from '@/components/ArtistsSection';
 import { AboutSection } from '@/components/AboutSection';
@@ -27,6 +28,7 @@ const Index = () => {
   return (
     <>
       <SEOHelmet />
+      <IntroReveal />
       <div className="min-h-screen bg-black">
         <ViewportMotion />
         <StickyNavigation />

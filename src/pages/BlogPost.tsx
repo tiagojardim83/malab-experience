@@ -76,8 +76,8 @@ const BlogPost = () => {
           {/* Background Image */}
           {post.image_url && (
             <div className="absolute inset-0 z-0">
-              <img 
-                src={post.image_url} 
+              <img
+                src={post.image_url}
                 alt={post.title}
                 className="w-full h-full object-cover"
               />

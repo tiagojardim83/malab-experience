@@ -62,8 +62,8 @@ const BlogSection = () => {
             posts.map((post) => (
               <Card key={post.id} className="group hover:shadow-xl transition-all duration-300 overflow-hidden border-0 bg-card/50 backdrop-blur-sm">
                 <div className="relative overflow-hidden">
-                  <img 
-                    src={post.image_url} 
+                  <img
+                    src={post.image_url}
                     alt={post.title}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                   />

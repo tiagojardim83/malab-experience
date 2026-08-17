@@ -207,18 +207,17 @@
 
   .motion-enabled [data-motion-image="forward"] {
     clip-path: inset(0 100% 0 0);
+    transition: clip-path 1050ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .motion-enabled [data-motion-image="reverse"] {
     clip-path: inset(0 0 0 100%);
+    transition: clip-path 1050ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  .motion-enabled [data-motion-image="forward"][data-motion-visible="true"] {
-    animation: imageMaskReveal 1050ms cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-
+  .motion-enabled [data-motion-image="forward"][data-motion-visible="true"],
   .motion-enabled [data-motion-image="reverse"][data-motion-visible="true"] {
-    animation: imageMaskRevealReverse 1050ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    clip-path: inset(0 0 0 0);
   }
 
   [data-motion-number] {
@@ -240,16 +239,6 @@
   [data-motion-number][data-motion-visible="true"]:hover {
     transform: translate3d(0, -0.08em, 0) scale(1.06) rotate(-1deg);
   }
-}
-
-@keyframes imageMaskReveal {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
-}
-
-@keyframes imageMaskRevealReverse {
-  from { clip-path: inset(0 0 0 100%); }
-  to { clip-path: inset(0 0 0 0); }
 }
 
 @keyframes numberReveal {
@@ -308,6 +297,16 @@
   }
 }
 
+@keyframes photoPanBg {
+  0% { background-position-x: 8%; }
+  100% { background-position-x: 92%; }
+}
+
+.photo-pan-bg {
+  animation: photoPanBg 8s ease-in-out infinite alternate;
+  will-change: background-position;
+}
+
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
   40% { transform: translateY(-8px); }
@@ -335,5 +334,10 @@
 
   .brand-carousel-track {
     animation: none !important;
+  }
+
+  .photo-pan-bg {
+    animation: none !important;
+    background-position-x: center;
   }
 }

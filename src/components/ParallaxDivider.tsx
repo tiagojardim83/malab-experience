@@ -60,6 +60,8 @@ export const ParallaxDivider = ({
     };
   }, [intensity]);
 
+  const [, posY = 'center'] = position.split(' ');
+
   return (
     <div ref={sectionRef} aria-label={alt} role="img" className={`relative w-full overflow-hidden bg-primary ${height}`}>
       <div
@@ -67,7 +69,9 @@ export const ParallaxDivider = ({
         className="absolute inset-0 will-change-transform"
         style={{ transition: smoothing > 0 ? `transform ${smoothing}ms linear` : 'none' }}
       >
-        <div data-motion-photo className="absolute inset-0 bg-cover" style={{ backgroundImage: `url(${image.url})`, backgroundPosition: position }} />
+        <div data-motion-photo className="absolute inset-0">
+          <div className="photo-pan-bg absolute inset-0 bg-cover" style={{ backgroundImage: `url(${image.url})`, backgroundPositionY: posY }} />
+        </div>
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/35" />
       <div className="absolute inset-x-0 bottom-0 h-px bg-background/30" />

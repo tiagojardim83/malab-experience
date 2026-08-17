@@ -8,17 +8,31 @@ const FRAMES = [
   '/assets/malab-octopus-04.png',
   '/assets/malab-octopus-06.png',
 ];
-const FRAME_MS = 190;
+const FRAME_MS = 280;
 
 const MIN_SIZE_VMAX = 13;
+const CONTAINED_SIZE_VMAX = 60;
 const MAX_SIZE_VMAX = 280;
-const FADE_START = 0.6;
+const GROW_END = 0.4;
+const FADE_END = 0.7;
 const LABEL_FADE_END = 0.18;
 const KEY_STEP = 0.3;
 const EASE = 0.1;
 const SETTLE_EPSILON = 0.0008;
 
 const clamp01 = (n: number) => Math.min(1, Math.max(0, n));
+
+const computeSize = (p: number) => {
+  if (p <= GROW_END) return MIN_SIZE_VMAX + (p / GROW_END) * (CONTAINED_SIZE_VMAX - MIN_SIZE_VMAX);
+  if (p <= FADE_END) return CONTAINED_SIZE_VMAX;
+  return CONTAINED_SIZE_VMAX + ((p - FADE_END) / (1 - FADE_END)) * (MAX_SIZE_VMAX - CONTAINED_SIZE_VMAX);
+};
+
+const computeFade = (p: number) => {
+  if (p <= GROW_END) return 0;
+  if (p >= FADE_END) return 1;
+  return (p - GROW_END) / (FADE_END - GROW_END);
+};
 
 export const IntroReveal = () => {
   const [visible, setVisible] = useState(false);
@@ -127,8 +141,8 @@ export const IntroReveal = () => {
       renderedRef.current = Math.abs(target - rendered) < SETTLE_EPSILON ? target : rendered + (target - rendered) * EASE;
       const p = renderedRef.current;
 
-      const size = MIN_SIZE_VMAX + p * (MAX_SIZE_VMAX - MIN_SIZE_VMAX);
-      const fade = clamp01((p - FADE_START) / (1 - FADE_START));
+      const size = computeSize(p);
+      const fade = computeFade(p);
       const labelOpacity = 1 - Math.min(1, p / LABEL_FADE_END);
 
       if (orangeRef.current) {

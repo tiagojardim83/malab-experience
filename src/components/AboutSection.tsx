@@ -78,7 +78,7 @@ export const AboutSection = () => {
                 data-motion-number
                 src="/Selo_Malab.png"
                 alt="Selo Malab · Est. 1994"
-                className="mb-12 h-32 w-auto brightness-0 md:h-44"
+                className="mb-12 h-32 w-auto md:h-44"
               />
               <p className="editorial-quote mb-8 text-3xl italic leading-tight text-primary md:text-4xl">
                 <span data-motion-number>32</span> anos transformando Minas Gerais no epicentro cultural do Brasil.

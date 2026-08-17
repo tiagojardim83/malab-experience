@@ -226,19 +226,6 @@ export const IntroReveal = () => {
       >
         1994
       </span>
-
-      <button
-        type="button"
-        aria-label="Pular introdução"
-        onClick={() => {
-          sessionStorage.setItem(SEEN_KEY, '1');
-          document.body.style.overflow = '';
-          setVisible(false);
-        }}
-        className="absolute bottom-6 right-6 text-[10px] font-bold uppercase tracking-[0.2em] text-background/50 transition-colors hover:text-background"
-      >
-        Pular →
-      </button>
     </div>
   );
 };

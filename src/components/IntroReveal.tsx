@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLenis } from 'lenis/react';
+import heroPoster from '@/assets/hero-concert.jpg';
 
 const SEEN_KEY = 'malab-intro-seen';
 const FRAMES = [
@@ -14,10 +15,12 @@ const FRAME_MS = 280;
 const MIN_SIZE_VMAX = 13;
 const MAX_SIZE_VMAX = 280;
 const GROWTH_EXPONENT = 1.6;
+const FADE_END = 0.28;
 const LABEL_FADE_END = 0.18;
 const KEY_STEP = 0.3;
 const EASE = 0.1;
 const SETTLE_EPSILON = 0.0008;
+const MAX_ACTIVE_MS = 20000;
 
 const clamp01 = (n: number) => Math.min(1, Math.max(0, n));
 
@@ -28,7 +31,8 @@ export const IntroReveal = () => {
   const targetRef = useRef(0);
   const renderedRef = useRef(0);
   const visibleRef = useRef(false);
-  const holeRef = useRef<HTMLDivElement>(null);
+  const photoRef = useRef<HTMLDivElement>(null);
+  const orangeRef = useRef<HTMLDivElement>(null);
   const estRef = useRef<HTMLSpanElement>(null);
   const yearRef = useRef<HTMLSpanElement>(null);
   const lenis = useLenis();
@@ -43,9 +47,13 @@ export const IntroReveal = () => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const setMaskFrame = (src: string) => {
-      if (holeRef.current) {
-        holeRef.current.style.webkitMaskImage = `linear-gradient(#000, #000), url(${src})`;
-        holeRef.current.style.maskImage = `linear-gradient(#000, #000), url(${src})`;
+      if (photoRef.current) {
+        photoRef.current.style.webkitMaskImage = `url(${src})`;
+        photoRef.current.style.maskImage = `url(${src})`;
+      }
+      if (orangeRef.current) {
+        orangeRef.current.style.webkitMaskImage = `url(${src})`;
+        orangeRef.current.style.maskImage = `url(${src})`;
       }
     };
 
@@ -149,23 +157,38 @@ export const IntroReveal = () => {
     setMaskFrame(FRAMES[0]);
 
     let raf = 0;
-    const renderTick = () => {
+    let activeSince: number | null = null;
+    const renderTick = (now: number) => {
       const target = targetRef.current;
       const rendered = renderedRef.current;
       renderedRef.current = Math.abs(target - rendered) < SETTLE_EPSILON ? target : rendered + (target - rendered) * EASE;
       const p = renderedRef.current;
 
       const size = computeSize(p);
+      const fade = clamp01(p / FADE_END);
       const labelOpacity = 1 - Math.min(1, p / LABEL_FADE_END);
 
-      if (holeRef.current) {
-        holeRef.current.style.webkitMaskSize = `100% 100%, ${size}vmax`;
-        holeRef.current.style.maskSize = `100% 100%, ${size}vmax`;
+      if (photoRef.current) {
+        photoRef.current.style.webkitMaskSize = `${size}vmax`;
+        photoRef.current.style.maskSize = `${size}vmax`;
+      }
+      if (orangeRef.current) {
+        orangeRef.current.style.webkitMaskSize = `${size}vmax`;
+        orangeRef.current.style.maskSize = `${size}vmax`;
+        orangeRef.current.style.opacity = String(1 - fade);
       }
       if (estRef.current) estRef.current.style.opacity = String(labelOpacity);
       if (yearRef.current) yearRef.current.style.opacity = String(labelOpacity);
 
       if (visibleRef.current && target >= 1 && p > 1 - SETTLE_EPSILON * 4) hide();
+
+      // Safety net: never leave the overlay stuck indefinitely if input handling misbehaves.
+      if (visibleRef.current) {
+        if (activeSince === null) activeSince = now;
+        if (now - activeSince > MAX_ACTIVE_MS) hide();
+      } else {
+        activeSince = null;
+      }
 
       raf = requestAnimationFrame(renderTick);
     };
@@ -189,20 +212,33 @@ export const IntroReveal = () => {
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999]">
+    <div className="fixed inset-0 z-[9999] bg-black">
       <div
-        ref={holeRef}
+        ref={photoRef}
         aria-hidden="true"
-        className="absolute inset-0 bg-black"
+        className="absolute inset-0 bg-cover bg-center"
         style={{
-          WebkitMaskRepeat: 'no-repeat, no-repeat',
-          maskRepeat: 'no-repeat, no-repeat',
-          WebkitMaskPosition: 'center, center',
-          maskPosition: 'center, center',
-          WebkitMaskSize: `100% 100%, ${MIN_SIZE_VMAX}vmax`,
-          maskSize: `100% 100%, ${MIN_SIZE_VMAX}vmax`,
-          WebkitMaskComposite: 'xor',
-          maskComposite: 'exclude',
+          backgroundImage: `url(${heroPoster})`,
+          WebkitMaskRepeat: 'no-repeat',
+          maskRepeat: 'no-repeat',
+          WebkitMaskPosition: 'center',
+          maskPosition: 'center',
+          WebkitMaskSize: `${MIN_SIZE_VMAX}vmax`,
+          maskSize: `${MIN_SIZE_VMAX}vmax`,
+        }}
+      />
+      <div
+        ref={orangeRef}
+        aria-hidden="true"
+        className="absolute inset-0"
+        style={{
+          backgroundColor: 'hsl(var(--secondary))',
+          WebkitMaskRepeat: 'no-repeat',
+          maskRepeat: 'no-repeat',
+          WebkitMaskPosition: 'center',
+          maskPosition: 'center',
+          WebkitMaskSize: `${MIN_SIZE_VMAX}vmax`,
+          maskSize: `${MIN_SIZE_VMAX}vmax`,
         }}
       />
 

@@ -63,13 +63,13 @@ export const SocialImpactSection = () => {
           })}
         </div>
 
-        <div className="mt-14 flex items-center justify-between gap-8 md:mt-20">
+        <div className="mt-14 flex flex-col items-start gap-8 md:mt-20 md:flex-row md:items-center md:justify-between">
           <img
             src={malabOctopus.url}
             alt="Polvo, símbolo da Malab"
-            className="h-20 w-auto shrink-0 opacity-90 brightness-0 invert md:h-32 lg:h-40"
+            className="h-12 w-auto shrink-0 opacity-90 brightness-0 invert md:h-20 lg:h-24"
           />
-          <blockquote className="ml-auto max-w-4xl border-l-2 border-primary pl-6 md:pl-8">
+          <blockquote className="max-w-4xl border-l-2 border-primary pl-6 md:ml-auto md:pl-8">
             <p className="editorial-quote text-2xl italic leading-tight md:text-4xl">
               “Cada evento é uma oportunidade de retribuir à comunidade que nos acolhe. A cultura transforma, e nós somos agentes dessa transformação.”
             </p>

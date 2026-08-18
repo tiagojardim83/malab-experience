@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface ParallaxDividerProps {
   image: { url: string };
@@ -6,124 +6,81 @@ interface ParallaxDividerProps {
   height?: string;
   position?: string;
   quote?: string;
-  /** Max pixel translation at viewport edges. Lower = mais sutil. Default 28. */
   intensity?: number;
-  /** Easing transition duration in ms. Higher = mais suave/lento. Default 220. */
   smoothing?: number;
 }
 
-/**
- * Full-bleed parallax divider between sections.
- * Subtle B&W photo with gentle scroll-linked translation.
- */
 export const ParallaxDivider = ({
   image,
   alt = '',
-  height = 'h-[55vh] md:h-[65vh]',
+  height = 'h-[62vh] md:h-[78vh]',
   position = 'center',
   quote,
-  intensity = 120,
+  intensity = 80,
   smoothing = 0,
-
 }: ParallaxDividerProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [offset, setOffset] = useState(0);
-  const activeRef = useRef(false);
-  const rafRef = useRef(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    const section = sectionRef.current;
+    const imageElement = imageRef.current;
+    if (!section || !imageElement || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let animationFrame = 0;
+    let isVisible = false;
 
     const update = () => {
-      const rect = el.getBoundingClientRect();
-      const vh = window.innerHeight;
-
-      // Scroll progress within viewport: 0 when section starts entering from the
-      // bottom, 1 when it has fully exited the top. 0.5 means centered.
-      const total = vh + rect.height;
-      const traveled = vh - rect.top;
-      const raw = traveled / total;
-      const progress = Math.max(0, Math.min(1, raw));
-
-      // Map 0..1 -> -1..1 and translate, so the image moves the full
-      // ±intensity range across the entire visible journey.
-      const signed = progress * 2 - 1;
-      setOffset(-signed * intensity);
+      animationFrame = 0;
+      if (!isVisible) return;
+      const rect = section.getBoundingClientRect();
+      const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
+      const offset = -(progress * 2 - 1) * intensity;
+      imageElement.style.transform = `translate3d(0, ${offset}px, 0) scale(${1 + (intensity * 2) / 420})`;
     };
 
+    const requestUpdate = () => {
+      if (!animationFrame) animationFrame = window.requestAnimationFrame(update);
+    };
 
-    // IntersectionObserver decides when to run the rAF loop at all
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        activeRef.current = entry.isIntersecting;
-        if (entry.isIntersecting) {
-          const loop = () => {
-            update();
-            if (activeRef.current) rafRef.current = requestAnimationFrame(loop);
-          };
-          cancelAnimationFrame(rafRef.current);
-          rafRef.current = requestAnimationFrame(loop);
-        } else {
-          cancelAnimationFrame(rafRef.current);
-          // settle position when leaving so it doesn't freeze mid-motion
-          update();
-        }
-      },
-      { threshold: [0, 0.01, 0.5, 1], rootMargin: '10% 0px 10% 0px' }
-    );
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+      if (isVisible) requestUpdate();
+    }, { rootMargin: '15% 0px' });
 
-    io.observe(el);
-    update();
+    observer.observe(section);
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate, { passive: true });
+
     return () => {
-      io.disconnect();
-      cancelAnimationFrame(rafRef.current);
+      observer.disconnect();
+      window.removeEventListener('scroll', requestUpdate);
+      window.removeEventListener('resize', requestUpdate);
+      window.cancelAnimationFrame(animationFrame);
     };
   }, [intensity]);
 
-
-
-  // scale just enough to cover the max translation without exposing edges
-  const coverScale = 1 + (intensity * 2) / 300; // enough headroom to cover translation
+  const [, posY = 'center'] = position.split(' ');
 
   return (
-    <div
-      ref={ref}
-      aria-label={alt}
-      role="img"
-      className={`relative w-full overflow-hidden ${height}`}
-      style={{ backgroundColor: '#3a1a5c' }}
-    >
+    <div ref={sectionRef} aria-label={alt} role="img" className={`relative w-full overflow-hidden bg-primary ${height}`}>
       <div
+        ref={imageRef}
         className="absolute inset-0 will-change-transform"
-        style={{
-          transform: `translate3d(0, ${offset}px, 0) scale(${coverScale})`,
-          transition: smoothing > 0 ? `transform ${smoothing}ms linear` : 'none',
-        }}
+        style={{ transition: smoothing > 0 ? `transform ${smoothing}ms linear` : 'none' }}
       >
-        <div
-          className="absolute inset-0 bg-cover"
-          style={{
-            backgroundImage: `url(${image.url})`,
-            backgroundPosition: position,
-            filter: 'grayscale(100%) contrast(1.05) brightness(0.95)',
-          }}
-        />
-      </div>
-
-      {/* subtle vignette */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30 pointer-events-none" />
-
-
-
-      {quote && (
-        <div className="relative z-10 h-full flex items-center justify-center px-6">
-          <p className="max-w-3xl text-center text-background text-2xl md:text-4xl font-light italic leading-snug tracking-tight">
-            {quote}
-          </p>
+        <div data-motion-photo className="absolute inset-0">
+          <div className="photo-pan-bg absolute inset-0 bg-cover" style={{ backgroundImage: `url(${image.url})`, backgroundPositionY: posY }} />
         </div>
-      )}
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/35" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-background/30" />
+
+      {quote ? (
+        <div className="container relative z-10 flex h-full items-center justify-center">
+          <p className="editorial-quote max-w-5xl text-center text-4xl italic leading-tight text-background md:text-7xl">{quote}</p>
+        </div>
+      ) : null}
     </div>
   );
 };
-

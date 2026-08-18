@@ -1,152 +1,75 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import { useSmoothScrollTo } from '@/hooks/use-smooth-scroll-to';
+
+const footerLinks = [
+  { id: 'hero', label: 'Home' },
+  { id: 'artistas', label: 'Artistas' },
+  { id: 'about', label: 'Quem somos' },
+  { id: 'impact', label: 'Impacto' },
+  { id: 'eventos', label: 'Ingressos' },
+  { id: 'services', label: 'Serviços' },
+  { id: 'contact', label: 'Contato' },
+];
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const smoothScrollTo = useSmoothScrollTo();
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
+  const scrollToSection = (sectionId: string) => smoothScrollTo(`#${sectionId}`);
 
   return (
-    <footer className="relative bg-primary text-background overflow-hidden">
-      <div className="container mx-auto px-6 md:px-10 pt-14 md:pt-28 pb-8">
-        {/* Top: Headline + CTA */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-start mb-20 md:mb-28">
-          <div>
-            <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-background/60 mb-6">
-              Vamos criar algo memorável.
-            </p>
-            <h2 className="text-[30px] leading-[1.15] font-bold md:text-7xl lg:text-8xl md:leading-[0.95] tracking-tight text-background">
-              Pronto para subir <br /> ao palco?
-            </h2>
-          </div>
-
-          <div className="lg:justify-self-end lg:pt-24">
-            <a
-              href="mailto:aluizer@malab.com.br"
-              className="group inline-flex items-center gap-4 text-secondary border-b border-secondary/40 pb-2 hover:border-secondary transition-colors"
-            >
-              <span className="text-sm md:text-base uppercase tracking-[0.25em] font-semibold">
-                Iniciar uma colaboração
-              </span>
-              <ArrowRight
-                size={18}
-                className="transition-transform group-hover:translate-x-1"
-              />
+    <footer className="overflow-hidden bg-primary text-background">
+      <div className="container pt-20 md:pt-28">
+        <div className="grid gap-10 border-t border-background/25 pt-5 lg:grid-cols-12">
+          <p className="editorial-label text-secondary lg:col-span-4">Vamos criar algo memorável</p>
+          <div className="lg:col-span-8">
+            <h2 className="editorial-display text-6xl leading-[0.82] md:text-8xl lg:text-[9rem]">Pronto para subir ao palco?</h2>
+            <a href="mailto:aluizer@malab.com.br" className="site-cta mt-10 bg-secondary text-background hover:bg-background hover:text-primary">
+              Iniciar uma colaboração <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>
         </div>
 
-        {/* Middle: Info columns */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-20">
-          {/* Copyright */}
+        <div className="my-20 grid grid-cols-2 gap-10 border-y border-background/20 py-10 md:grid-cols-4 md:py-14">
           <div>
-            <p className="text-xs uppercase tracking-[0.25em] text-background/50 mb-3">
-              © Malab {currentYear}
-            </p>
-            <p className="text-background/70 text-sm">
-              Belo Horizonte, MG <br /> Brasil
-            </p>
+            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-secondary">© Malab {currentYear}</p>
+            <p className="mt-4 text-sm leading-6 text-background/60">Belo Horizonte, MG<br />Brasil</p>
           </div>
 
-          {/* Navigation */}
           <div>
-            <p className="text-xs uppercase tracking-[0.25em] text-background/50 mb-3">
-              Navegação
-            </p>
-            <ul className="space-y-1.5 text-sm">
-              {[
-                { id: 'hero', label: 'Home' },
-                { id: 'artistas', label: 'Artista' },
-                { id: 'about', label: 'Quem Somos' },
-                { id: 'impact', label: 'Impacto' },
-                { id: 'eventos', label: 'Ingressos' },
-                { id: 'services', label: 'Serviços' },
-                { id: 'contact', label: 'Contato' },
-              ].map((link) => (
-                <li key={link.id}>
-                  <button
-                    onClick={() => scrollToSection(link.id)}
-                    className="text-background/80 hover:text-secondary transition-colors"
-                  >
-                    {link.label}
-                  </button>
-                </li>
+            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-secondary">Navegação</p>
+            <ul className="mt-4 space-y-2 text-sm text-background/70">
+              {footerLinks.map((link) => (
+                <li key={link.id}><button type="button" onClick={() => scrollToSection(link.id)} className="transition-colors hover:text-secondary">{link.label}</button></li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <p className="text-xs uppercase tracking-[0.25em] text-background/50 mb-3">
-              Contato
-            </p>
-            <ul className="space-y-1.5 text-sm">
-              <li>
-                <a
-                  href="mailto:aluizer@malab.com.br"
-                  className="text-background/80 hover:text-secondary transition-colors"
-                >
-                  aluizer@malab.com.br
-                </a>
-              </li>
-            </ul>
+            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-secondary">Contato</p>
+            <a href="mailto:aluizer@malab.com.br" className="mt-4 block break-all text-sm text-background/70 transition-colors hover:text-secondary">aluizer@malab.com.br</a>
           </div>
 
-          {/* Social */}
           <div>
-            <p className="text-xs uppercase tracking-[0.25em] text-background/50 mb-3">
-              Social
-            </p>
-            <ul className="space-y-1.5 text-sm">
-              <li>
-                <a
-                  href="https://www.instagram.com/malabproducoes/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-background/80 hover:text-secondary transition-colors"
-                >
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/aluizermalab/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-background/80 hover:text-secondary transition-colors"
-                >
-                  LinkedIn
-                </a>
-              </li>
+            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-secondary">Social</p>
+            <ul className="mt-4 space-y-2 text-sm text-background/70">
+              <li><a href="https://www.instagram.com/malabproducoes/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-secondary">Instagram</a></li>
+              <li><a href="https://www.linkedin.com/in/aluizermalab/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-secondary">LinkedIn</a></li>
             </ul>
           </div>
         </div>
 
-        {/* Oversized brand wordmark marquee */}
-        <div className="relative -mx-6 md:-mx-10 mb-8 select-none pointer-events-none overflow-hidden">
-          <div className="flex gap-12 animate-marquee whitespace-nowrap">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <span
-                key={i}
-                className="font-bold tracking-tighter text-secondary leading-none shrink-0"
-                style={{ fontSize: 'clamp(80px, 22vw, 360px)' }}
-              >
-                ©MALAB
-              </span>
+        <div aria-hidden className="relative left-1/2 flex w-screen -translate-x-1/2 items-center overflow-hidden border-y border-background/30 py-10 md:py-14">
+          <div className="flex w-max min-w-max animate-marquee items-center whitespace-nowrap">
+            {Array.from({ length: 8 }).map((_, index) => (
+              <span key={index} className="shrink-0 px-7 font-display text-[clamp(8rem,24vw,22rem)] leading-[0.78] tracking-[-0.07em] text-secondary md:px-12">MALAB ©</span>
             ))}
           </div>
         </div>
 
-
-        {/* Bottom bar */}
-        <div className="border-t border-background/15 pt-6 flex items-center justify-center">
-          <p className="text-background/50 text-xs text-center">
-            © {currentYear} Malab Produções. Todos os direitos reservados.
-          </p>
+        <div className="flex flex-col gap-3 py-7 text-[9px] font-semibold uppercase tracking-[0.14em] text-background/45 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {currentYear} Malab Produções. Todos os direitos reservados.</p>
+          <a href="https://www.tgarden.com.br/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-secondary">Webdesign: TGARDEN_STUDIO</a>
         </div>
       </div>
     </footer>

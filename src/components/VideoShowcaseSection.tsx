@@ -2,17 +2,15 @@ import heroVideo from '@/assets/malab-hero.mp4.asset.json';
 
 export const VideoShowcaseSection = () => {
   return (
-    <section className="relative bg-background py-[4.5rem] md:py-24">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto rounded-sm overflow-hidden shadow-2xl ring-1 ring-border/40">
-          <video
-            src={heroVideo.url}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-auto block"
-          />
+    <section className="bg-black py-16 text-background md:py-24">
+      <div className="container">
+        <div className="mb-6 flex items-end justify-between border-t border-background/25 pt-4">
+          <p className="editorial-label text-secondary">Em movimento</p>
+          <p className="hidden text-[10px] font-bold uppercase tracking-[0.2em] text-background/50 md:block">Malab · Live experience</p>
+        </div>
+        <div className="relative h-[78svh] min-h-[30rem] max-h-[46rem] overflow-hidden rounded-[1.5rem] md:aspect-video md:h-auto md:min-h-0 md:max-h-none">
+          <video src={heroVideo.url} autoPlay loop muted playsInline className="video-showcase-pan block h-full w-full object-cover" />
+          <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-background/10" />
         </div>
       </div>
     </section>

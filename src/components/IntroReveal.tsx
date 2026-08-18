@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useLenis } from 'lenis/react';
 
 const SEEN_KEY = 'malab-intro-seen';
 const FRAMES = [
@@ -30,6 +31,12 @@ export const IntroReveal = () => {
   const holeRef = useRef<HTMLDivElement>(null);
   const estRef = useRef<HTMLSpanElement>(null);
   const yearRef = useRef<HTMLSpanElement>(null);
+  const lenis = useLenis();
+  const lenisRef = useRef(lenis);
+
+  useEffect(() => {
+    lenisRef.current = lenis;
+  }, [lenis]);
 
   useEffect(() => {
     const forceReplay = new URLSearchParams(window.location.search).has('intro');
@@ -46,6 +53,7 @@ export const IntroReveal = () => {
 
     const lockScroll = () => {
       lockedScrollY = window.scrollY;
+      lenisRef.current?.stop();
       document.body.style.position = 'fixed';
       document.body.style.top = `-${lockedScrollY}px`;
       document.body.style.left = '0';
@@ -61,6 +69,7 @@ export const IntroReveal = () => {
       document.body.style.right = '';
       document.body.style.overflow = '';
       document.documentElement.style.overflow = '';
+      lenisRef.current?.start();
       window.scrollTo(0, lockedScrollY);
     };
 

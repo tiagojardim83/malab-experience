@@ -1,4 +1,5 @@
 import { ArrowUpRight } from 'lucide-react';
+import { useSmoothScrollTo } from '@/hooks/use-smooth-scroll-to';
 
 const footerLinks = [
   { id: 'hero', label: 'Home' },
@@ -12,10 +13,9 @@ const footerLinks = [
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const smoothScrollTo = useSmoothScrollTo();
 
-  const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
+  const scrollToSection = (sectionId: string) => smoothScrollTo(`#${sectionId}`);
 
   return (
     <footer className="overflow-hidden bg-primary text-background">
@@ -32,7 +32,7 @@ export const Footer = () => {
 
         <div className="my-20 grid grid-cols-2 gap-10 border-y border-background/20 py-10 md:grid-cols-4 md:py-14">
           <div>
-            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-secondary">© Malab <span data-motion-number>{currentYear}</span></p>
+            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-secondary">© Malab {currentYear}</p>
             <p className="mt-4 text-sm leading-6 text-background/60">Belo Horizonte, MG<br />Brasil</p>
           </div>
 
@@ -68,7 +68,7 @@ export const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-3 py-7 text-[9px] font-semibold uppercase tracking-[0.14em] text-background/45 sm:flex-row sm:items-center sm:justify-between">
-          <p>© <span data-motion-number>{currentYear}</span> Malab Produções. Todos os direitos reservados.</p>
+          <p>© {currentYear} Malab Produções. Todos os direitos reservados.</p>
           <a href="https://www.tgarden.com.br/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-secondary">Webdesign: TGARDEN_STUDIO</a>
         </div>
       </div>

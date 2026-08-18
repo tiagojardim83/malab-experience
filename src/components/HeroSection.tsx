@@ -1,15 +1,13 @@
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { useSmoothScrollTo } from '@/hooks/use-smooth-scroll-to';
 import heroConcert from '@/assets/hero-concert.jpg';
 import heroVideo from '@/assets/malab-hero.mp4.asset.json';
 
 export const HeroSection = () => {
-  const scrollToEvents = () => {
-    document.getElementById('eventos')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
+  const smoothScrollTo = useSmoothScrollTo();
 
-  const scrollToAbout = () => {
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
+  const scrollToEvents = () => smoothScrollTo('#eventos');
+  const scrollToAbout = () => smoothScrollTo('#about');
 
   return (
     <section id="hero" className="relative min-h-[100svh] overflow-hidden bg-black text-background">

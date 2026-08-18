@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
 const services = [
@@ -35,6 +36,41 @@ const differentials = [
 ];
 
 export const ServicesSection = () => {
+  const itemRefs = useRef<(HTMLElement | null)[]>([]);
+
+  useEffect(() => {
+    const items = itemRefs.current.filter((el): el is HTMLElement => el !== null);
+    if (!items.length) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      items.forEach((el) => el.setAttribute('data-visible', 'true'));
+      return;
+    }
+
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const viewportCenter = window.innerHeight / 2;
+      items.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const elementCenter = rect.top + rect.height / 2;
+        el.setAttribute('data-visible', elementCenter < viewportCenter ? 'true' : 'false');
+      });
+    };
+    const requestUpdate = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+    return () => {
+      window.removeEventListener('scroll', requestUpdate);
+      window.removeEventListener('resize', requestUpdate);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
     <section id="services" className="bg-black text-background">
       <div className="container pt-16 md:pt-24 lg:pt-28">
@@ -53,7 +89,11 @@ export const ServicesSection = () => {
       <div className="container pb-16 pt-12 md:pb-24 md:pt-16">
         <div className="border-t border-background/30">
           {services.map((service, index) => (
-            <article key={service.title} className="group grid gap-y-8 border-b border-background/30 py-9 md:py-12 lg:grid-cols-12 lg:items-start lg:gap-x-8">
+            <article
+              key={service.title}
+              ref={(el) => { itemRefs.current[index] = el; }}
+              className="service-reveal group grid gap-y-8 border-b border-background/30 py-9 md:py-12 lg:grid-cols-12 lg:items-start lg:gap-x-8"
+            >
               <div className="flex items-center justify-between lg:col-span-1 lg:block">
                 <span data-motion-number className="font-display text-4xl italic text-secondary">0{index + 1}</span>
                 <ArrowUpRight className="h-5 w-5 text-background/35 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 lg:mt-8" strokeWidth={1} />

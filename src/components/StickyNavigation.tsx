@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ArrowUpRight, Instagram, Linkedin } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useSmoothScrollTo } from '@/hooks/use-smooth-scroll-to';
 import malabType from '@/assets/malab-type.png.asset.json';
 
 const sections = [
@@ -19,6 +20,7 @@ export const StickyNavigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const smoothScrollTo = useSmoothScrollTo();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,9 +66,7 @@ export const StickyNavigation = () => {
   }, [isMobileMenuOpen]);
 
   const scrollToSection = (sectionId: string) => {
-    const scroll = () => {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
+    const scroll = () => smoothScrollTo(`#${sectionId}`);
 
     if (location.pathname !== '/') {
       navigate('/');

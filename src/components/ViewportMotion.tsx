@@ -6,7 +6,6 @@ const CONTENT_SELECTOR = [
   '#root footer > .container',
 ].join(', ');
 
-const IMAGE_SELECTOR = '#root img[class*="object-cover"], #root [data-motion-photo]';
 const NUMBER_SELECTOR = '#root [data-motion-number]';
 
 const SLIDE_DISTANCE_PX = 130;
@@ -22,7 +21,6 @@ export const ViewportMotion = () => {
     if (!root) return;
 
     const contentTargets = Array.from(new Set(document.querySelectorAll<HTMLElement>(CONTENT_SELECTOR)));
-    const imageTargets = Array.from(document.querySelectorAll<HTMLElement>(IMAGE_SELECTOR));
     const numberTargets = Array.from(document.querySelectorAll<HTMLElement>(NUMBER_SELECTOR));
     const revealMap = new Map<HTMLElement, Set<HTMLElement>>();
 
@@ -46,19 +44,12 @@ export const ViewportMotion = () => {
       slideTargets.push({ el: target, direction: direction === 'left' ? -1 : 1 });
     });
 
-    imageTargets.forEach((target, index) => {
-      target.dataset.motionImage = index % 2 === 1 ? 'reverse' : 'forward';
-      registerTarget(target.parentElement ?? target, target);
-    });
     numberTargets.forEach((target) => registerTarget(target, target));
     root.classList.add('motion-enabled');
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
       numberTargets.forEach((target) => {
-        target.dataset.motionVisible = 'true';
-      });
-      imageTargets.forEach((target) => {
         target.dataset.motionVisible = 'true';
       });
       return () => root.classList.remove('motion-enabled');

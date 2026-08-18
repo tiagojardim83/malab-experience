@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLenis } from 'lenis/react';
 import heroPoster from '@/assets/hero-concert.jpg';
+import heroVideo from '@/assets/malab-hero.mp4.asset.json';
 
 const SEEN_KEY = 'malab-intro-seen';
 const FRAMES = [
@@ -31,7 +32,7 @@ export const IntroReveal = () => {
   const targetRef = useRef(0);
   const renderedRef = useRef(0);
   const visibleRef = useRef(false);
-  const photoRef = useRef<HTMLDivElement>(null);
+  const photoRef = useRef<HTMLVideoElement>(null);
   const orangeRef = useRef<HTMLDivElement>(null);
   const estRef = useRef<HTMLSpanElement>(null);
   const yearRef = useRef<HTMLSpanElement>(null);
@@ -213,12 +214,16 @@ export const IntroReveal = () => {
 
   return (
     <div className="fixed inset-0 z-[9999] bg-black">
-      <div
+      <video
         ref={photoRef}
         aria-hidden="true"
-        className="absolute inset-0 bg-cover bg-center"
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster={heroPoster}
+        className="absolute inset-0 h-full w-full object-cover"
         style={{
-          backgroundImage: `url(${heroPoster})`,
           WebkitMaskRepeat: 'no-repeat',
           maskRepeat: 'no-repeat',
           WebkitMaskPosition: 'center',
@@ -226,7 +231,9 @@ export const IntroReveal = () => {
           WebkitMaskSize: `${MIN_SIZE_VMAX}vmax`,
           maskSize: `${MIN_SIZE_VMAX}vmax`,
         }}
-      />
+      >
+        <source src={heroVideo.url} type="video/mp4" />
+      </video>
       <div
         ref={orangeRef}
         aria-hidden="true"

@@ -59,18 +59,40 @@ export const IntroReveal = () => {
       }
     };
 
+    let lockedScrollY = 0;
+
+    const lockScroll = () => {
+      lockedScrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${lockedScrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    };
+
+    const unlockScroll = () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      window.scrollTo(0, lockedScrollY);
+    };
+
     const show = (startValue: number) => {
       visibleRef.current = true;
       targetRef.current = startValue;
       renderedRef.current = startValue;
       setVisible(true);
-      document.body.style.overflow = 'hidden';
+      lockScroll();
     };
 
     const hide = () => {
       visibleRef.current = false;
       sessionStorage.setItem(SEEN_KEY, '1');
-      document.body.style.overflow = '';
+      unlockScroll();
       setVisible(false);
     };
 
@@ -174,7 +196,7 @@ export const IntroReveal = () => {
       window.removeEventListener('keydown', onKeyDown);
       window.clearInterval(frameTimer);
       cancelAnimationFrame(raf);
-      document.body.style.overflow = '';
+      if (visibleRef.current) unlockScroll();
     };
   }, []);
 

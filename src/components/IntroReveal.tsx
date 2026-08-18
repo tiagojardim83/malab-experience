@@ -11,10 +11,8 @@ const FRAMES = [
 const FRAME_MS = 280;
 
 const MIN_SIZE_VMAX = 13;
-const CONTAINED_SIZE_VMAX = 60;
 const MAX_SIZE_VMAX = 280;
-const GROW_END = 0.4;
-const FADE_END = 0.7;
+const GROWTH_EXPONENT = 1.6;
 const LABEL_FADE_END = 0.18;
 const KEY_STEP = 0.3;
 const EASE = 0.1;
@@ -22,24 +20,13 @@ const SETTLE_EPSILON = 0.0008;
 
 const clamp01 = (n: number) => Math.min(1, Math.max(0, n));
 
-const computeSize = (p: number) => {
-  if (p <= GROW_END) return MIN_SIZE_VMAX + (p / GROW_END) * (CONTAINED_SIZE_VMAX - MIN_SIZE_VMAX);
-  if (p <= FADE_END) return CONTAINED_SIZE_VMAX;
-  return CONTAINED_SIZE_VMAX + ((p - FADE_END) / (1 - FADE_END)) * (MAX_SIZE_VMAX - CONTAINED_SIZE_VMAX);
-};
-
-const computeFade = (p: number) => {
-  if (p <= GROW_END) return 0;
-  if (p >= FADE_END) return 1;
-  return (p - GROW_END) / (FADE_END - GROW_END);
-};
+const computeSize = (p: number) => MIN_SIZE_VMAX + Math.pow(p, GROWTH_EXPONENT) * (MAX_SIZE_VMAX - MIN_SIZE_VMAX);
 
 export const IntroReveal = () => {
   const [visible, setVisible] = useState(false);
   const targetRef = useRef(0);
   const renderedRef = useRef(0);
   const visibleRef = useRef(false);
-  const orangeRef = useRef<HTMLDivElement>(null);
   const holeRef = useRef<HTMLDivElement>(null);
   const estRef = useRef<HTMLSpanElement>(null);
   const yearRef = useRef<HTMLSpanElement>(null);
@@ -49,10 +36,6 @@ export const IntroReveal = () => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const setMaskFrame = (src: string) => {
-      if (orangeRef.current) {
-        orangeRef.current.style.webkitMaskImage = `url(${src})`;
-        orangeRef.current.style.maskImage = `url(${src})`;
-      }
       if (holeRef.current) {
         holeRef.current.style.webkitMaskImage = `linear-gradient(#000, #000), url(${src})`;
         holeRef.current.style.maskImage = `linear-gradient(#000, #000), url(${src})`;
@@ -164,14 +147,8 @@ export const IntroReveal = () => {
       const p = renderedRef.current;
 
       const size = computeSize(p);
-      const fade = computeFade(p);
       const labelOpacity = 1 - Math.min(1, p / LABEL_FADE_END);
 
-      if (orangeRef.current) {
-        orangeRef.current.style.webkitMaskSize = `${size}vmax`;
-        orangeRef.current.style.maskSize = `${size}vmax`;
-        orangeRef.current.style.opacity = String(1 - fade);
-      }
       if (holeRef.current) {
         holeRef.current.style.webkitMaskSize = `100% 100%, ${size}vmax`;
         holeRef.current.style.maskSize = `100% 100%, ${size}vmax`;
@@ -205,20 +182,6 @@ export const IntroReveal = () => {
   return (
     <div className="fixed inset-0 z-[9999]">
       <div
-        ref={orangeRef}
-        aria-hidden="true"
-        className="absolute inset-0"
-        style={{
-          backgroundColor: 'hsl(var(--secondary))',
-          WebkitMaskRepeat: 'no-repeat',
-          maskRepeat: 'no-repeat',
-          WebkitMaskPosition: 'center',
-          maskPosition: 'center',
-          WebkitMaskSize: `${MIN_SIZE_VMAX}vmax`,
-          maskSize: `${MIN_SIZE_VMAX}vmax`,
-        }}
-      />
-      <div
         ref={holeRef}
         aria-hidden="true"
         className="absolute inset-0 bg-black"
@@ -237,14 +200,14 @@ export const IntroReveal = () => {
       <span
         ref={estRef}
         aria-hidden="true"
-        className="absolute left-[10%] top-1/2 -translate-y-1/2 text-[10px] font-bold uppercase tracking-[0.3em] text-white md:left-[16%] md:text-xs"
+        className="absolute left-[10%] top-1/2 -translate-y-1/2 text-[10px] font-bold uppercase tracking-[0.3em] text-secondary md:left-[16%] md:text-xs"
       >
         Est.
       </span>
       <span
         ref={yearRef}
         aria-hidden="true"
-        className="absolute right-[10%] top-1/2 -translate-y-1/2 text-[10px] font-bold uppercase tracking-[0.3em] text-white md:right-[16%] md:text-xs"
+        className="absolute right-[10%] top-1/2 -translate-y-1/2 text-[10px] font-bold uppercase tracking-[0.3em] text-secondary md:right-[16%] md:text-xs"
       >
         1994
       </span>

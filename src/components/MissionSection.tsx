@@ -1,31 +1,14 @@
 export const MissionSection = () => {
   return (
-    <section id="missao" className="relative py-[4.5rem] md:py-24 bg-card overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto relative">
-          <div className="flex items-center gap-4 mb-6 animate-fade-in">
-            <span className="h-[2px] w-12 bg-secondary" />
-            <span className="text-secondary font-semibold tracking-[0.2em] uppercase text-xs">
-              Nossa Missão
-            </span>
-          </div>
-
-          <blockquote className="animate-slide-up">
-            <p className="text-2xl leading-[1.2] font-light md:text-5xl md:leading-[1.2] text-foreground tracking-tight">
-              Produzir experiências que unem{' '}
-              <span className="text-gradient-primary font-semibold">excelência técnica</span>,{' '}
-              <span className="text-secondary font-semibold">impacto social</span> e{' '}
-              <span className="text-gradient-primary font-semibold">hospitalidade mineira</span>
-              <span className="text-secondary">.</span>
+    <section id="missao" className="bg-secondary text-background">
+      <div className="container py-16 md:py-20 lg:py-24">
+        <div className="max-w-7xl border-t border-background/35 pt-5">
+          <p className="editorial-label">Nossa missão</p>
+          <blockquote className="mt-8">
+            <p className="editorial-display text-4xl leading-[1.02] md:text-6xl lg:text-7xl">
+              Produzir experiências que unem <span className="italic text-primary">excelência técnica,</span> impacto social e <span className="italic text-primary">hospitalidade mineira.</span>
             </p>
           </blockquote>
-
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -bottom-10 -right-4 text-[10rem] md:text-[14rem] font-black leading-none text-foreground/[0.04] select-none -z-0"
-          >
-            “
-          </div>
         </div>
       </div>
     </section>

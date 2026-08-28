@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Clock, MapPin, Ticket } from 'luci
 import mariaRita from '@/assets/event-maria-rita.jpg.asset.json';
 import vertBattle from '@/assets/event-vert-battle.jpeg.asset.json';
 import martinhoMartnalia from '@/assets/event-martinho.png.asset.json';
+import zeRamalho from '@/assets/event-ze-ramalho.jpg.asset.json';
 
 const events = [
   {
@@ -37,6 +38,17 @@ const events = [
     image: vertBattle.url,
     link: 'https://www.instagram.com/vertbattle/',
     ctaLabel: 'Saiba mais',
+  },
+  {
+    id: 4,
+    title: 'Zé Ramalho — Show dos Sucessos',
+    location: 'Arena Hall · BH/MG',
+    time: '20.NOV · 21h',
+    price: 'Sympla',
+    description: '20.11 · 21h · Arena Hall · BH/MG. Zé Ramalho apresenta a turnê 2026 “Show dos Sucessos”, reunindo os grandes clássicos de sua carreira.',
+    image: zeRamalho.url,
+    link: 'https://bileto.sympla.com.br/event/124968/d/405155',
+    ctaLabel: 'Compre agora',
   },
 ];
 

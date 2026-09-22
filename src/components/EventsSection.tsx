@@ -1,11 +1,22 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUpRight, Clock, MapPin, Ticket } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Clock, MapPin, Ticket } from 'lucide-react';
 import mariaRita from '@/assets/event-maria-rita.jpg.asset.json';
 import vertBattle from '@/assets/event-vert-battle.jpeg.asset.json';
 import martinhoMartnalia from '@/assets/event-martinho.png.asset.json';
 import zeRamalho from '@/assets/event-ze-ramalho.jpg.asset.json';
 
 const events = [
+  {
+    id: 4,
+    title: 'Zé Ramalho — Show dos Sucessos',
+    location: 'Arena Hall · BH/MG',
+    time: '20.NOV · 21h',
+    price: 'Sympla',
+    description: '20.11 · 21h · Arena Hall · BH/MG. Zé Ramalho apresenta a turnê 2026 “Show dos Sucessos”, reunindo os grandes clássicos de sua carreira.',
+    image: zeRamalho.url,
+    link: 'https://bileto.sympla.com.br/event/124968/d/405155',
+    ctaLabel: 'Compre agora',
+  },
   {
     id: 1,
     title: 'Maria Rita - Redescobrir Vol. 2',
@@ -16,6 +27,7 @@ const events = [
     image: mariaRita.url,
     link: 'https://bileto.sympla.com.br/event/121295/d/388100',
     ctaLabel: 'Compre agora',
+    done: true,
   },
   {
     id: 2,
@@ -27,6 +39,7 @@ const events = [
     image: martinhoMartnalia.url,
     link: 'https://bileto.sympla.com.br/event/120119/d/382999',
     ctaLabel: 'Compre agora',
+    done: true,
   },
   {
     id: 3,
@@ -38,17 +51,7 @@ const events = [
     image: vertBattle.url,
     link: 'https://www.instagram.com/vertbattle/',
     ctaLabel: 'Saiba mais',
-  },
-  {
-    id: 4,
-    title: 'Zé Ramalho — Show dos Sucessos',
-    location: 'Arena Hall · BH/MG',
-    time: '20.NOV · 21h',
-    price: 'Sympla',
-    description: '20.11 · 21h · Arena Hall · BH/MG. Zé Ramalho apresenta a turnê 2026 “Show dos Sucessos”, reunindo os grandes clássicos de sua carreira.',
-    image: zeRamalho.url,
-    link: 'https://bileto.sympla.com.br/event/124968/d/405155',
-    ctaLabel: 'Compre agora',
+    done: true,
   },
 ];
 
@@ -122,6 +125,9 @@ export const EventsSection = () => {
                 <img src={event.image} alt={event.title} loading="lazy" className="event-poster h-full w-full object-cover transition-[filter,transform] duration-700 group-hover:scale-[1.025]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-70" />
                 <span data-motion-number className="absolute left-0 top-0 bg-primary px-4 py-3 text-sm font-black text-background">0{index + 1}</span>
+                {event.done ? (
+                  <span className="absolute right-0 top-0 inline-flex items-center gap-1.5 bg-secondary px-4 py-3 text-[9px] font-bold uppercase tracking-[0.16em] text-background"><Check className="h-3.5 w-3.5" /> Realizado</span>
+                ) : null}
               </a>
 
               <div className="flex flex-1 flex-col pt-5">

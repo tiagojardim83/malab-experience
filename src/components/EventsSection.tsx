@@ -138,9 +138,15 @@ export const EventsSection = () => {
                   <li className="flex items-center gap-2"><Clock className="h-4 w-4 text-secondary" /><span data-motion-number>{event.time}</span></li>
                   <li className="flex items-center gap-2"><Ticket className="h-4 w-4 text-secondary" />{event.price}</li>
                 </ul>
-                <a href={event.link} target="_blank" rel="noopener noreferrer" className="site-cta mt-6 bg-primary text-background hover:bg-secondary">
-                  {event.ctaLabel}<ArrowUpRight className="h-4 w-4" />
-                </a>
+                {event.done ? (
+                  <span className="site-cta mt-6 cursor-not-allowed bg-primary/10 text-primary/40">
+                    Vendas encerradas
+                  </span>
+                ) : (
+                  <a href={event.link} target="_blank" rel="noopener noreferrer" className="site-cta mt-6 bg-primary text-background hover:bg-secondary">
+                    {event.ctaLabel}<ArrowUpRight className="h-4 w-4" />
+                  </a>
+                )}
               </div>
             </article>
           ))}

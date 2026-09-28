@@ -86,7 +86,7 @@ export const AboutSection = () => {
         </div>
 
         <div className="mt-10 flex flex-col gap-4 border-t border-background/35 pt-5 sm:flex-row sm:items-end sm:justify-between md:mt-14">
-          <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-background/75 md:text-xs">Arquivo Malab</span>
+          <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-background/75 md:text-xs">&copy; Malab</span>
           <div className="flex items-center gap-4">
             <div className="flex gap-2" aria-label="Selecionar imagem">
               {slides.map((slide, slideIndex) => (

@@ -30,11 +30,11 @@ export const AboutSection = () => {
   }, []);
 
   return (
-    <section id="about" className="relative overflow-hidden bg-background text-foreground">
+    <section id="about" className="relative overflow-hidden bg-black text-background">
       <div className="container py-20 md:py-24 lg:py-28">
-        <header className="mb-12 max-w-6xl border-t border-primary/30 pt-5 md:mb-20">
+        <header className="mb-12 max-w-6xl border-t border-background/35 pt-5 md:mb-20">
           <p className="editorial-label text-secondary">Legado & visão</p>
-          <h2 className="editorial-display mt-6 text-5xl leading-[0.9] text-primary md:text-7xl lg:text-8xl">
+          <h2 className="editorial-display mt-6 text-5xl leading-[0.9] text-background md:text-7xl lg:text-8xl">
             Quem somos: <span className="italic text-secondary">três décadas</span> de impacto.
           </h2>
         </header>
@@ -66,7 +66,7 @@ export const AboutSection = () => {
                   type="button"
                   aria-label={`Ir para foto ${slideIndex + 1}`}
                   onClick={() => setIndex(slideIndex)}
-                  className={`h-1 flex-1 transition-colors ${slideIndex === index ? 'bg-secondary' : 'bg-primary/20'}`}
+                  className={`h-1 flex-1 transition-colors ${slideIndex === index ? 'bg-secondary' : 'bg-background/20'}`}
                 />
               ))}
             </div>
@@ -78,38 +78,38 @@ export const AboutSection = () => {
                 data-motion-number
                 src="/Selo_Malab.png"
                 alt="Selo Malab · Est. 1994"
-                className="mb-12 h-32 w-auto md:h-44"
+                className="mb-12 h-32 w-auto invert md:h-44"
               />
-              <p className="editorial-quote mb-8 text-3xl italic leading-tight text-primary md:text-4xl">
+              <p className="editorial-quote mb-8 text-3xl italic leading-tight text-background md:text-4xl">
                 <span data-motion-number>32</span> anos transformando Minas Gerais no epicentro cultural do Brasil.
               </p>
-              <div className="space-y-6 border-t border-primary/25 pt-7 text-base leading-7 text-primary/75 md:text-lg md:leading-8">
+              <div className="space-y-6 border-t border-background/25 pt-7 text-base leading-7 text-background/75 md:text-lg md:leading-8">
                 <p>
-                  A <strong className="font-semibold text-primary">Malab Produções</strong> nasce do olhar inquieto de{' '}
-                  <span className="font-semibold text-primary">Aluizer Malab</span>, produtor cultural mineiro premiado que transformou seu sobrenome em sinônimo de inovação.
+                  A <strong className="font-semibold text-background">Malab Produções</strong> nasce do olhar inquieto de{' '}
+                  <span className="font-semibold text-background">Aluizer Malab</span>, produtor cultural mineiro premiado que transformou seu sobrenome em sinônimo de inovação.
                 </p>
                 <p>
-                  De <strong className="font-semibold text-primary">Elton John</strong> a{' '}
-                  <strong className="font-semibold text-primary">Beyoncé</strong>, do{' '}
-                  <strong className="font-semibold text-primary">Mercado Central</strong> ao{' '}
-                  <strong className="font-semibold text-primary">Mineirão</strong>, criamos palcos onde a arte ecoa, a economia pulsa e o público se reconhece.
+                  De <strong className="font-semibold text-background">Elton John</strong> a{' '}
+                  <strong className="font-semibold text-background">Beyoncé</strong>, do{' '}
+                  <strong className="font-semibold text-background">Mercado Central</strong> ao{' '}
+                  <strong className="font-semibold text-background">Mineirão</strong>, criamos palcos onde a arte ecoa, a economia pulsa e o público se reconhece.
                 </p>
               </div>
             </div>
 
-            <p className="mt-12 border-l-2 border-secondary pl-5 text-xs font-bold uppercase tracking-[0.2em] text-primary/65">
+            <p className="mt-12 border-l-2 border-secondary pl-5 text-xs font-bold uppercase tracking-[0.2em] text-background/65">
               Minas Gerais · Brasil · Mundo
             </p>
           </div>
         </div>
       </div>
 
-      <div className="bg-primary text-background">
+      <div className="border-t border-background/20">
         <div className="container grid md:grid-cols-3">
           {values.map((value) => (
             <article key={value.n} className="border-b border-background/20 py-10 md:border-b-0 md:border-r md:px-8 md:py-14 first:md:pl-0 last:md:border-r-0 last:md:pr-0">
               <span data-motion-number className="font-display text-5xl italic text-secondary">{value.n}</span>
-              <h3 className="mt-7 text-sm font-bold uppercase tracking-[0.18em]">{value.t}</h3>
+              <h3 className="mt-7 text-sm font-bold uppercase tracking-[0.18em] text-background">{value.t}</h3>
               <p className="mt-3 max-w-sm text-sm leading-6 text-background/70">{value.d}</p>
             </article>
           ))}

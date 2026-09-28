@@ -61,11 +61,8 @@ export const AboutSection = () => {
               data-motion-number
               src="/Selo_Malab.svg"
               alt="Selo Malab · Est. 1994"
-              className="mb-10 h-28 w-auto invert md:h-36"
+              className="h-28 w-auto invert md:h-36"
             />
-            <p className="editorial-quote max-w-xl text-3xl italic leading-tight text-background md:text-4xl">
-              <span data-motion-number>32</span> anos transformando Minas Gerais no epicentro cultural do Brasil.
-            </p>
           </div>
 
           <div className="flex flex-col justify-between lg:col-span-5">

@@ -40,7 +40,7 @@ export const AboutSection = () => {
         </header>
 
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-          <div className="relative lg:col-span-7">
+          <div className="relative lg:order-2 lg:col-span-7">
             <div className="relative min-h-[34rem] overflow-hidden rounded-[1.5rem] md:min-h-[48rem]">
               {slides.map((slide, slideIndex) => (
                 <img
@@ -72,7 +72,7 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          <div className="flex flex-col justify-between lg:col-span-5 lg:py-8">
+          <div className="flex flex-col justify-between lg:order-1 lg:col-span-5 lg:py-8">
             <div>
               <img
                 data-motion-number

@@ -76,7 +76,7 @@ export const AboutSection = () => {
             <div>
               <img
                 data-motion-number
-                src="/Selo_Malab.png"
+                src="/Selo_Malab.svg"
                 alt="Selo Malab · Est. 1994"
                 className="mb-12 h-32 w-auto invert md:h-44"
               />
